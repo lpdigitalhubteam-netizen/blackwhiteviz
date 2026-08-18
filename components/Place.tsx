@@ -54,6 +54,7 @@ export function Place({
       onKeyDown={
         zoomable
           ? (event) => {
+              if (!src) return;
               if (event.key === "Enter" || event.key === " ") {
                 event.preventDefault();
                 show({ src, alt });
