@@ -150,7 +150,7 @@ export default function Home() {
             href="/work"
             className="text-[11px] tracking-[0.22em] uppercase transition-opacity hover:opacity-60"
           >
-            All projects
+            View more
           </Link>
         </div>
         <Collage>
@@ -166,6 +166,14 @@ export default function Home() {
             />
           ))}
         </Collage>
+        <div className="mt-8 flex justify-end">
+          <Link
+            href="/work"
+            className="text-[11px] tracking-[0.22em] uppercase transition-opacity hover:opacity-60"
+          >
+            View more →
+          </Link>
+        </div>
       </section>
 
       <section className="px-5 pb-24 md:px-8 md:pb-32">
