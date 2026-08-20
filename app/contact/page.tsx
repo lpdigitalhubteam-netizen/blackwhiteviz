@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Place } from "@/components/Place";
 import { ContactForm } from "@/components/ContactForm";
-import { Reveal, RevealClip } from "@/components/Reveal";
+import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -17,8 +17,9 @@ export default function ContactPage() {
             05 — Contact
           </p>
           <h1 className="font-display mb-12 text-5xl font-semibold tracking-tight uppercase md:text-6xl">
-            <RevealClip>Let us see</RevealClip>
-            <RevealClip delay={0.08}>the drawings.</RevealClip>
+            Get in touch
+            <br />
+            with us.
           </h1>
 
           <Reveal>
