@@ -29,12 +29,15 @@ export default function ContactPage() {
               >
                 {site.contact.email}
               </a>
-              <a
-                href={site.contact.phoneHref}
-                className="mt-2 block text-sm hover:opacity-60"
-              >
-                {site.contact.phone}
-              </a>
+              {site.contact.phones.map((phone) => (
+                <a
+                  key={phone.href}
+                  href={phone.href}
+                  className="mt-2 block text-sm hover:opacity-60"
+                >
+                  {phone.number}
+                </a>
+              ))}
               <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
                 {site.contact.address}
               </p>

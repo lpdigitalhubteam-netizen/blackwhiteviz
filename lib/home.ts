@@ -3,44 +3,66 @@ export const homeHeroSlides = [
     src: "/work/coastal-luxury-villa/01.webp",
     alt: "Coastal Luxury Villa — dusk waterfront",
     title: "Coastal Luxury Villa",
+    kicker: "3D Visualization — Dubai",
+    lines: ["Coastal Luxury Villa,", "Waterfront light, photoreal calm."],
+    paragraph:
+      "A dusk waterfront render that shows material, glass, and the exact hour the villa should feel finished—before construction begins.",
   },
   {
     src: "/work/water-island/01.webp",
     alt: "Water Island — aerial masterplan",
     title: "Water Island",
+    kicker: "3D Visualization — Dubai",
+    lines: ["Water Island,", "Aerial planning from the first read."],
+    paragraph:
+      "Explore the island masterplan in a single sweep—channels, land fingers, and arrival lighting—built as photoreal 3D visualization.",
   },
   {
     src: "/work/danube-diamondz/01.webp",
     alt: "Danube Diamondz — dusk tower",
     title: "Danube Diamondz",
+    kicker: "3D Visualization — Dubai",
+    lines: ["Danube Diamondz,", "A tower designed to sell the plan."],
+    paragraph:
+      "Dusk-to-night architectural visualization with clear silhouettes and amenity intent—so developers and marketing teams can move faster with confidence.",
   },
   {
     src: "/work/desert-villa/01.webp",
     alt: "Desert Villa — day in the dunes",
     title: "Desert Villa",
+    kicker: "3D Visualization — Dubai",
+    lines: ["Desert Villa,", "Light, stone, and the hour."],
+    paragraph:
+      "A desert scene built for depth—stone volume, shadow softness, and warm realism—helping clients approve the design before it is built.",
   },
   {
     src: "/work/city-mall/01.webp",
     alt: "City Mall — night facade",
     title: "City Mall",
+    kicker: "3D Visualization — Dubai",
+    lines: ["City Mall,", "Retail as a civic room."],
+    paragraph:
+      "Night facade and interior intent captured in photoreal 3D renders—showing atmosphere, circulation, and the feeling of arrival.",
   },
   {
     src: "/work/danube-bayz-102/01.webp",
     alt: "Danube Bayz 102 — golden hour interior",
     title: "Danube Bayz 102",
+    kicker: "3D Visualization — Dubai",
+    lines: ["Danube Bayz 102,", "Warm interiors, golden hour realism."],
+    paragraph:
+      "Residential interior visualization with natural light and lived-in warmth—built as detailed 3D stills for faster design review.",
   },
 ] as const;
 
 export const homeHeroCopy = {
-  kicker: "3D Visualization — Dubai",
-  lines: ["The unbuilt,", "seen as finished."],
   cta: { label: "View the work", href: "/work" },
 };
 
 export const homeAbout = {
   kicker: "About us",
-  title: "A visualization studio in Dubai",
-  lead: "Blackwhite Viz is not only a 3D rendering studio. We work with architects, real estate developers, and design teams to produce photoreal stills, animations, and aerials — so a project can be seen, sold, and decided before it is built.",
+  title: "Blackwhite Viz by Latheif Productions",
+  lead: "Blackwhite Viz is a 3D visualization studio by Latheif Productions. We work with architects, real estate developers, and design teams to produce photoreal stills, animations, and aerials — so a project can be seen, sold, and decided before it is built.",
   body: "From villas and towers to malls, masterplans, and interiors, each frame is built with the same care as the design itself: light, material, and the hour the building should be remembered in.",
 };
 

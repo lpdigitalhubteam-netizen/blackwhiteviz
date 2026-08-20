@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Syne } from "next/font/google";
+import { Geist } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteChrome } from "@/components/SiteChrome";
 import { site } from "@/lib/site";
@@ -10,12 +10,6 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-});
-
 export const metadata: Metadata = {
   title: {
     default: "Blackwhite Viz — 3D Visualization, Dubai",
@@ -23,8 +17,9 @@ export const metadata: Metadata = {
   },
   description: site.tagline,
   icons: {
-    icon: `${site.logo.src}?v=${site.logo.version}`,
-    apple: `${site.logo.src}?v=${site.logo.version}`,
+    icon: [{ url: "/logo/favicon.webp", type: "image/webp" }],
+    apple: [{ url: "/logo/favicon.webp", type: "image/webp" }],
+    shortcut: "/logo/favicon.webp",
   },
 };
 
@@ -36,9 +31,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${syne.variable} h-full antialiased`}
+      className={`${geistSans.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-background text-foreground">
+      <body
+        suppressHydrationWarning
+        className="flex min-h-full flex-col bg-background text-foreground"
+      >
         <SiteChrome>
           <div className="flex min-h-full flex-1 flex-col">{children}</div>
           <SiteFooter />

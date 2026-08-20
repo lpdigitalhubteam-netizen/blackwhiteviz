@@ -31,10 +31,11 @@ export function Menu({
           <div className="relative z-10 flex h-full flex-col justify-between px-5 pt-24 pb-8 md:px-12 md:pt-28 md:pb-12">
             <nav data-menu-nav className="flex w-fit flex-col gap-1 md:gap-2">
               {nav.map((item, i) => {
+                const baseHref = item.href.split("#")[0];
                 const current =
                   item.href === "/"
                     ? pathname === "/"
-                    : pathname.startsWith(item.href);
+                    : pathname.startsWith(baseHref);
                 return (
                   <motion.div
                     key={item.href}

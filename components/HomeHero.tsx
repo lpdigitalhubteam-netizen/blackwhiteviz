@@ -49,14 +49,6 @@ export function HomeHero() {
         </motion.div>
       </AnimatePresence>
 
-      <div
-        className="pointer-events-none absolute inset-0 z-[1]"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.28) 14%, transparent 32%), linear-gradient(to top, rgba(7,7,7,0.92) 0%, rgba(7,7,7,0.55) 28%, rgba(7,7,7,0.12) 55%, transparent 78%)",
-        }}
-      />
-
       <div className="absolute right-0 bottom-0 left-0 z-[2] flex items-end justify-between gap-8 px-5 pb-10 md:px-8 md:pb-16 lg:px-10">
         <div className="max-w-4xl">
           <motion.p
@@ -65,17 +57,26 @@ export function HomeHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease }}
           >
-            {homeHeroCopy.kicker}
+            {slide.kicker}
           </motion.p>
           <motion.h1
-            className="font-display text-4xl leading-[1.02] font-semibold tracking-tight text-white uppercase md:text-6xl lg:text-7xl xl:text-8xl"
+            className="font-display text-2xl leading-[1.02] font-semibold tracking-tight text-white uppercase md:text-4xl lg:text-5xl xl:text-6xl"
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.95, delay: 0.08, ease }}
           >
-            <span className="block">{homeHeroCopy.lines[0]}</span>
-            <span className="block text-white/50">{homeHeroCopy.lines[1]}</span>
+            <span className="block">{slide.lines[0]}</span>
+            <span className="block text-white/50">{slide.lines[1]}</span>
           </motion.h1>
+
+          <motion.p
+            className="mt-4 max-w-2xl text-sm leading-relaxed text-white/75 md:text-base"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.18, ease }}
+          >
+            {slide.paragraph}
+          </motion.p>
           <motion.div
             className="mt-8"
             initial={{ opacity: 0, y: 14 }}
@@ -84,7 +85,7 @@ export function HomeHero() {
           >
             <Link
               href={homeHeroCopy.cta.href}
-              className="inline-flex items-center gap-3 text-[11px] tracking-[0.22em] text-white uppercase transition-opacity hover:opacity-55"
+              className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-6 py-3 text-[11px] tracking-[0.22em] text-white uppercase transition-colors hover:bg-white/20"
             >
               {homeHeroCopy.cta.label}
               <span aria-hidden className="text-sm leading-none">
@@ -92,6 +93,15 @@ export function HomeHero() {
               </span>
             </Link>
           </motion.div>
+        </div>
+
+        <div className="sr-only">
+          {homeHeroSlides.map((s) => (
+            <div key={s.src}>
+              <div>{s.title}</div>
+              <div>{s.paragraph}</div>
+            </div>
+          ))}
         </div>
 
         <div className="hidden flex-col items-end gap-3 pb-1 md:flex">

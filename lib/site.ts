@@ -1,6 +1,8 @@
 export const site = {
   name: "Blackwhite Viz",
   wordmark: "BLACKWHITE VIZ",
+  parent: "Latheif Productions",
+  regions: ["UAE", "Africa", "Sri Lanka", "India"] as const,
   logo: {
     src: "/logo/blackwhite_whitelogo.webp",
     alt: "Blackwhite Viz",
@@ -22,14 +24,32 @@ export const site = {
     email: "hello@blackwhiteviz.com",
     phone: "+971 50 214 8129",
     phoneHref: "tel:+971502148129",
+    phones: [
+      { number: "+971 50 214 8129", href: "tel:+971502148129" },
+      { number: "+971 50 216 3873", href: "tel:+971502163873" },
+    ],
     address: "112 Al Bakhit Center, Abu Baker Al Siddique Rd, Deira, Dubai, UAE",
   },
+  social: [
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/blackwhiteviz",
+    },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/company/blackwhiteviz/",
+    },
+    {
+      label: "Facebook",
+      href: "https://www.facebook.com/BlackWhiteViz",
+    },
+  ] as const,
 };
 
 export const nav = [
   { href: "/", label: "Home", index: "01" },
   { href: "/work", label: "Work", index: "02" },
-  { href: "/studio", label: "Studio", index: "03" },
+  { href: "/about", label: "About", index: "03" },
   { href: "/services", label: "Services", index: "04" },
   { href: "/contact", label: "Contact", index: "05" },
 ] as const;

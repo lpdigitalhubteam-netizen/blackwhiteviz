@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { Header } from "@/components/Header";
 import { LightboxProvider } from "@/components/Lightbox";
 import { Menu } from "@/components/Menu";
+import { PriceGuidelineSlideIn } from "@/components/PriceGuidelineSlideIn";
+import { WhatsAppChatButton } from "@/components/WhatsAppChatButton";
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -28,6 +30,8 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
       <Header open={open} onToggle={() => setOpen((value) => !value)} />
       <Menu open={open} onClose={() => setOpen(false)} />
       {children}
+      <PriceGuidelineSlideIn />
+      <WhatsAppChatButton />
     </LightboxProvider>
   );
 }

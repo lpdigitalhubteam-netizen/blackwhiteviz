@@ -1,37 +1,65 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { submitEnquiry } from "@/lib/enquiry";
 import { site } from "@/lib/site";
 
 export function ContactForm() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
+    "idle",
+  );
+  const [error, setError] = useState("");
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setStatus("loading");
+    setError("");
+
     const data = new FormData(event.currentTarget);
-    const name = String(data.get("name") ?? "");
-    const email = String(data.get("email") ?? "");
-    const message = String(data.get("message") ?? "");
-    const subject = encodeURIComponent(`Project enquiry — ${name}`);
-    const body = encodeURIComponent(`${message}\n\n${name}\n${email}`);
-    window.location.href = `mailto:${site.contact.email}?subject=${subject}&body=${body}`;
-    setSent(true);
+    const name = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
+    const website = String(data.get("website") ?? "").trim();
+
+    try {
+      await submitEnquiry({
+        source: "contact",
+        name,
+        email,
+        message,
+        website,
+      });
+      setStatus("success");
+      event.currentTarget.reset();
+    } catch (err) {
+      setStatus("error");
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    }
   }
 
-  if (sent) {
+  if (status === "success") {
     return (
       <p className="max-w-md text-sm leading-relaxed text-muted">
-        Your mail client should open. If it does not, write directly to{" "}
+        Thank you — your enquiry was sent to{" "}
         <a className="text-foreground" href={`mailto:${site.contact.email}`}>
           {site.contact.email}
         </a>
-        .
+        . We will reply shortly.
       </p>
     );
   }
 
   return (
     <form onSubmit={onSubmit} className="flex max-w-lg flex-col gap-8">
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden
+      />
+
       <label className="block">
         <span className="mb-3 block text-[10px] tracking-[0.22em] text-muted uppercase">
           Name
@@ -40,7 +68,8 @@ export function ContactForm() {
           required
           name="name"
           type="text"
-          className="w-full border-b border-line bg-transparent py-2 text-sm outline-none transition-colors focus:border-foreground"
+          disabled={status === "loading"}
+          className="w-full border-b border-line bg-transparent py-2 text-sm outline-none transition-colors focus:border-foreground disabled:opacity-60"
         />
       </label>
       <label className="block">
@@ -51,7 +80,8 @@ export function ContactForm() {
           required
           name="email"
           type="email"
-          className="w-full border-b border-line bg-transparent py-2 text-sm outline-none transition-colors focus:border-foreground"
+          disabled={status === "loading"}
+          className="w-full border-b border-line bg-transparent py-2 text-sm outline-none transition-colors focus:border-foreground disabled:opacity-60"
         />
       </label>
       <label className="block">
@@ -62,14 +92,21 @@ export function ContactForm() {
           required
           name="message"
           rows={4}
-          className="w-full resize-none border-b border-line bg-transparent py-2 text-sm outline-none transition-colors focus:border-foreground"
+          disabled={status === "loading"}
+          className="w-full resize-none border-b border-line bg-transparent py-2 text-sm outline-none transition-colors focus:border-foreground disabled:opacity-60"
         />
       </label>
+
+      {status === "error" ? (
+        <p className="text-sm text-red-400">{error}</p>
+      ) : null}
+
       <button
         type="submit"
-        className="self-start text-[11px] tracking-[0.28em] uppercase transition-opacity hover:opacity-60"
+        disabled={status === "loading"}
+        className="self-start text-[11px] tracking-[0.28em] uppercase transition-opacity hover:opacity-60 disabled:cursor-not-allowed disabled:opacity-40"
       >
-        Send
+        {status === "loading" ? "Sending..." : "Send"}
       </button>
     </form>
   );

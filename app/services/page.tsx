@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Place } from "@/components/Place";
-import { Reveal, RevealClip } from "@/components/Reveal";
+import { Reveal } from "@/components/Reveal";
 import { servicePages } from "@/lib/services";
 
 export const metadata: Metadata = {
@@ -14,8 +14,8 @@ export default function ServicesPage() {
       <p className="mb-4 text-[10px] tracking-[0.28em] text-muted uppercase">
         04 — Services
       </p>
-      <h1 className="font-display mb-16 text-5xl font-semibold tracking-tight uppercase md:mb-24 md:text-7xl">
-        <RevealClip>What we make</RevealClip>
+      <h1 className="font-display mb-16 text-5xl leading-[1.05] font-semibold tracking-tight uppercase md:mb-24 md:text-7xl">
+        Services
       </h1>
 
       <div className="flex flex-col gap-20 md:gap-28">
