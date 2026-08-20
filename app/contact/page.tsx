@@ -14,7 +14,7 @@ export default function ContactPage() {
       <div className="grid min-h-svh md:grid-cols-2">
         <div className="flex flex-col justify-end px-5 pt-28 pb-16 md:px-8 md:pt-32 md:pb-16">
           <p className="mb-4 text-[10px] tracking-[0.28em] text-muted uppercase">
-            05 — Contact
+            06 — Contact
           </p>
           <h1 className="font-display mb-12 text-5xl font-semibold tracking-tight uppercase md:text-6xl">
             Get in touch

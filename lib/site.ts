@@ -51,7 +51,8 @@ export const nav = [
   { href: "/work", label: "Work", index: "02" },
   { href: "/about", label: "About", index: "03" },
   { href: "/services", label: "Services", index: "04" },
-  { href: "/contact", label: "Contact", index: "05" },
+  { href: "/blog", label: "Blogs", index: "05" },
+  { href: "/contact", label: "Contact", index: "06" },
 ] as const;
 
 export const services = [
