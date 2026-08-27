@@ -17,178 +17,269 @@ export type Project = {
   frames: Frame[];
 };
 
-function stills(
-  slug: string,
+/** Build a public path under /project (folder + filename may include spaces). */
+export function projectSrc(folder: string, file: string) {
+  return `/project/${folder}/${file}`;
+}
+
+function framesFrom(
+  folder: string,
+  files: string[],
   alts: string[],
   tiles: NonNullable<Frame["tile"]>[],
 ): Frame[] {
-  return alts.map((alt, i) => ({
-    alt,
-    src: `/work/${slug}/${String(i + 1).padStart(2, "0")}.webp`,
+  return files.map((file, i) => ({
+    alt: alts[i] ?? `${folder} — still ${i + 1}`,
+    src: projectSrc(folder, file),
     ratio: "16/9",
-    tile: tiles[i],
+    tile: tiles[i] ?? "mid",
   }));
 }
 
 export const projects: Project[] = [
   {
-    slug: "coastal-luxury-villa",
-    title: "Coastal Luxury Villa",
-    type: "Exterior / Interior",
+    slug: "water-villa",
+    title: "Water Villa",
+    type: "Exterior",
+    location: "UAE",
+    year: "2025",
+    featured: true,
+    excerpt:
+      "A coastal villa held between glass, water, and the hour the facade should be remembered.",
+    frames: framesFrom(
+      "WATER VILLA",
+      [
+        "Villa V1_01 Final copy.webp",
+        "Villa V2_01 Final copy.webp",
+        "Villa V4_01 Final copy.webp",
+        "Villa V4 Night_01 copy.webp",
+      ],
+      [
+        "Water Villa — daytime waterfront exterior",
+        "Water Villa — alternate facade and approach",
+        "Water Villa — final exterior still",
+        "Water Villa — night exterior glow",
+      ],
+      ["full", "wide", "mid", "tall"],
+    ),
+  },
+  {
+    slug: "kenya-villa",
+    title: "Kenya Villa",
+    type: "Exterior / Landscape",
+    location: "Africa",
+    year: "2025",
+    featured: true,
+    excerpt:
+      "A villa in landscape and light — day volumes, planted ground, and warm night arrival.",
+    frames: framesFrom(
+      "KENYA-VILLA",
+      [
+        "f3 copy.webp",
+        "f4 copy.webp",
+        "n_4 copy.webp",
+        "Villa - Night copy.webp",
+      ],
+      [
+        "Kenya Villa — exterior day still",
+        "Kenya Villa — landscape and volume",
+        "Kenya Villa — dusk approach",
+        "Kenya Villa — night exterior",
+      ],
+      ["wide", "tall", "mid", "full"],
+    ),
+  },
+  {
+    slug: "tower-2",
+    title: "Tower Two",
+    type: "Exterior",
     location: "Dubai",
     year: "2025",
     featured: true,
     excerpt:
-      "A waterfront house held between stone, glass, and the last light on the water.",
-    frames: stills(
-      "coastal-luxury-villa",
+      "Day, night, and close-up facade — a tower read clearly for sales and approvals.",
+    frames: framesFrom(
+      "TOWER2",
       [
-        "Coastal Luxury Villa — dusk waterfront facade, infinity edge meeting the sea",
-        "Coastal Luxury Villa — living terrace opening to the gulf",
-        "Coastal Luxury Villa — night pool and warm glass",
-        "Coastal Luxury Villa — interior looking out to water",
-        "Coastal Luxury Villa — aerial of the plot and arrival",
+        "TOWER DAY RENDER-3 copy.webp",
+        "TOWER NIGHT VIEW copy.webp",
+        "TOWER CLOSE UP VIEW.-1 copy.webp",
       ],
-      ["full", "tall", "wide", "mid", "mid"],
+      [
+        "Tower Two — day architectural render",
+        "Tower Two — night view",
+        "Tower Two — facade close-up",
+      ],
+      ["full", "wide", "tall"],
     ),
   },
   {
-    slug: "urban-tower",
-    title: "Urban Tower",
+    slug: "tower-1",
+    title: "Tower One",
     type: "Exterior / Aerial",
     location: "Dubai",
     year: "2025",
-    excerpt:
-      "A slender commercial tower. Street, podium, crown — read in one glance.",
-    frames: stills(
-      "urban-tower",
+    excerpt: "Tower views that carry scale, glass, and the city around the form.",
+    frames: framesFrom(
+      "TOWER1",
+      ["Tower view 01_02 copy.webp", "Tower view 02_01 copy.webp"],
       [
-        "Urban Tower — concept aerial, glass catching late sun",
-        "Urban Tower — street elevation, podium and crown",
-        "Urban Tower — night view, lobby glow on wet paving",
+        "Tower One — primary exterior view",
+        "Tower One — secondary tower view",
       ],
-      ["tall", "wide", "full"],
+      ["wide", "tall"],
     ),
   },
   {
-    slug: "water-island",
-    title: "Water Island",
-    type: "Masterplan / Aerial",
-    location: "UAE",
-    year: "2024",
-    excerpt:
-      "An island read from the air first: water, fingers of land, and the lights of arrival.",
-    frames: stills(
-      "water-island",
-      [
-        "Water Island — high aerial, turquoise channels and villa plots",
-        "Water Island — marina promenade at blue hour",
-        "Water Island — waterfront cluster from the channel",
-        "Water Island — resort arrival and landscaped water",
-        "Water Island — dusk boardwalk and restaurant terrace",
-      ],
-      ["full", "mid", "third", "wide", "mid"],
-    ),
-  },
-  {
-    slug: "city-mall",
-    title: "City Mall",
-    type: "Interior / Exterior",
+    slug: "tower-3",
+    title: "Tower Three",
+    type: "Exterior / Amenity",
     location: "Dubai",
-    year: "2024",
+    year: "2025",
+    featured: true,
     excerpt:
-      "Retail as a civic room. Atrium light, night facade, the movement of people.",
-    frames: stills(
-      "city-mall",
+      "Tower, amenity, and evening light — clubhouse, courts, and lobby moments in one project set.",
+    frames: framesFrom(
+      "Tower3",
       [
-        "City Mall — night facade with arrival plaza",
-        "City Mall — evening interior, stone floor and hanging gardens",
-        "City Mall — atrium looking through floors of light",
-        "City Mall — day exterior and landscaped drop-off",
-        "City Mall — food court terrace opening to the city",
+        "gcam - 1_evening_rev16 copy.webp",
+        "25 copy.webp",
+        "Basketball_1 copy.webp",
+        "CLUBHOUSE copy.webp",
+        "cam - 012_ev_final copy.webp",
+        "cam - 014_ev_final copy.webp",
+        "MEETING_CShading_LightMix copy.webp",
       ],
-      ["wide", "tall", "mid", "full", "third"],
+      [
+        "Tower Three — evening exterior",
+        "Tower Three — architectural still",
+        "Tower Three — basketball amenity",
+        "Tower Three — clubhouse",
+        "Tower Three — evening camera 012",
+        "Tower Three — evening camera 014",
+        "Tower Three — meeting room interior",
+      ],
+      ["full", "wide", "mid", "tall", "third", "third", "mid"],
     ),
   },
   {
-    slug: "danube-diamondz",
-    title: "Danube Diamondz",
-    client: "Danube Properties",
+    slug: "concept-tower",
+    title: "Concept Tower",
+    type: "Exterior / Detail",
+    location: "Dubai",
+    year: "2025",
+    excerpt:
+      "Detail passes that sell the glass, depth, and material intent of the tower concept.",
+    frames: framesFrom(
+      "concept tower",
+      ["sp_2_detail_final.webp", "sp_3_detail_final.webp"],
+      [
+        "Concept Tower — detail final still",
+        "Concept Tower — secondary detail pass",
+      ],
+      ["tall", "wide"],
+    ),
+  },
+  {
+    slug: "fort",
+    title: "Fort",
     type: "Exterior",
-    location: "Dubai",
-    year: "2025",
-    excerpt:
-      "A residential tower for a developer who needed the silhouette to sell the plan.",
-    frames: stills(
-      "danube-diamondz",
-      [
-        "Danube Diamondz — hero dusk elevation, cut-glass facade",
-        "Danube Diamondz — amenity deck looking toward the skyline",
-        "Danube Diamondz — street-level arrival and landscaped drop-off",
-        "Danube Diamondz — night view, crown lighting",
-        "Danube Diamondz — aerial of the tower in the city fabric",
-      ],
-      ["tall", "wide", "mid", "full", "third"],
-    ),
-  },
-  {
-    slug: "farm-house",
-    title: "Farm House",
-    type: "Exterior / Landscape",
     location: "UAE",
     year: "2024",
     excerpt:
-      "A quiet house in planted ground. Shade, long walls, and the heat held back.",
-    frames: stills(
-      "farm-house",
+      "Mass, light, and place — exterior cameras that hold the fort in clear volume.",
+    frames: framesFrom(
+      "Fort",
       [
-        "Farm House — approach through date palms to a low stone volume",
-        "Farm House — courtyard with water rill and afternoon shade",
-        "Farm House — living terrace opening to the planted field",
-        "Farm House — dusk, kitchen light in a long horizontal window",
-        "Farm House — aerial of the compound in planted ground",
+        "cam - 1.jpg copy.webp",
+        "cam - 2 copy.webp",
+        "cam - 4.jpg copy.webp",
+        "cam - 5 copy.webp",
+        "cam - 7 copy.webp",
       ],
-      ["full", "third", "wide", "mid", "mid"],
+      [
+        "Fort — camera 01 exterior",
+        "Fort — camera 02 exterior",
+        "Fort — camera 04 exterior",
+        "Fort — camera 05 exterior",
+        "Fort — camera 07 exterior",
+      ],
+      ["full", "wide", "mid", "third", "tall"],
     ),
   },
   {
-    slug: "danube-bayz-102",
-    title: "Danube Bayz 102",
-    client: "Danube Properties",
-    type: "Interior",
-    location: "Dubai",
-    year: "2025",
+    slug: "heritage",
+    title: "Heritage",
+    type: "Interior / Cultural",
+    location: "UAE",
+    year: "2024",
     excerpt:
-      "Show interiors for a residential product. Rooms that feel lived in, not staged empty.",
-    frames: stills(
-      "danube-bayz-102",
+      "Cultural interiors and storytelling spaces — majlis, classic cars, and narrative rooms.",
+    frames: framesFrom(
+      "heretage",
       [
-        "Danube Bayz 102 — living room, golden hour and city glass",
-        "Danube Bayz 102 — day interior, pale stone and oak",
-        "Danube Bayz 102 — night living, warm lamps and skyline",
-        "Danube Bayz 102 — bedroom with sheer curtains",
-        "Danube Bayz 102 — kitchen island, morning light",
+        "Majlis copy.webp",
+        "Classic Cars copy.webp",
+        "Storytelling copy.webp",
+        "09 copy.webp",
+        "11_p.rev copy.webp",
+      ],
+      [
+        "Heritage — majlis interior",
+        "Heritage — classic cars gallery",
+        "Heritage — storytelling space",
+        "Heritage — interior still 09",
+        "Heritage — interior still 11",
       ],
       ["wide", "tall", "mid", "third", "full"],
     ),
   },
   {
-    slug: "desert-villa",
-    title: "Desert Villa",
-    type: "Exterior / Landscape",
-    location: "UAE",
+    slug: "interior",
+    title: "Interior Studies",
+    type: "Interior",
+    location: "Dubai",
     year: "2025",
     excerpt:
-      "A house in sand and light. Day, dusk, rain — the same volume, four hours.",
-    frames: stills(
-      "desert-villa",
+      "Interior stills for finish, furniture, and daylight — rooms that feel decided.",
+    frames: framesFrom(
+      "INTERIOR",
+      ["02 copy.webp", "7 copy.webp", "8 copy.webp", "v2_2 copy.webp"],
       [
-        "Desert Villa — day, stone volume in planted dunes",
-        "Desert Villa — night, courtyard fire and warm glass",
-        "Desert Villa — sunrise, long shadow across the sand",
-        "Desert Villa — rain, wet paving and overcast light",
+        "Interior — living still 02",
+        "Interior — study 07",
+        "Interior — study 08",
+        "Interior — variant v2",
       ],
-      ["full", "wide", "mid", "third"],
+      ["wide", "mid", "tall", "full"],
+    ),
+  },
+  {
+    slug: "nshama",
+    title: "Nshama",
+    type: "Interior / Exterior",
+    location: "Dubai",
+    year: "2025",
+    featured: true,
+    excerpt:
+      "Lobby, living, kids room, balcony, and pool — a residential product told in finished frames.",
+    frames: framesFrom(
+      "nshama",
+      [
+        "Lobby copy.webp",
+        "Living Room  copy.webp",
+        "KIDS ROOM-2 copy.webp",
+        "balcony copy.webp",
+        "pool copy.webp",
+      ],
+      [
+        "Nshama — lobby interior",
+        "Nshama — living room",
+        "Nshama — kids room",
+        "Nshama — balcony",
+        "Nshama — pool",
+      ],
+      ["full", "wide", "mid", "tall", "third"],
     ),
   },
 ];
@@ -213,3 +304,29 @@ export const tileClass: Record<NonNullable<Frame["tile"]>, string> = {
   third: "md:col-span-4",
   tall: "md:col-span-4",
 };
+
+/** Pack tiles so every row fills 12 cols — no vacant cells for odd counts. */
+export function collageTiles(
+  count: number,
+): NonNullable<Frame["tile"]>[] {
+  const tiles: NonNullable<Frame["tile"]>[] = [];
+  let left = count;
+
+  while (left > 0) {
+    if (left >= 4) {
+      tiles.push("wide", "tall", "mid", "mid");
+      left -= 4;
+    } else if (left === 3) {
+      tiles.push("wide", "tall", "full");
+      left -= 3;
+    } else if (left === 2) {
+      tiles.push("mid", "mid");
+      left -= 2;
+    } else {
+      tiles.push("full");
+      left -= 1;
+    }
+  }
+
+  return tiles;
+}

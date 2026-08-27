@@ -10,7 +10,7 @@ export function BlogCard({ post }: { post: BlogPost }) {
     >
       <div className="relative aspect-[5/4] overflow-hidden bg-panel">
         <Image
-          src={post.cover}
+          src={encodeURI(post.cover)}
           alt={post.coverAlt}
           fill
           sizes="(min-width: 1024px) 25vw, 50vw"
@@ -31,7 +31,7 @@ export function BlogCardDetailed({ post }: { post: BlogPost }) {
       <Link href={`/blog/${post.slug}`} className="block">
         <div className="relative aspect-[16/10] overflow-hidden bg-panel">
           <Image
-            src={post.cover}
+            src={encodeURI(post.cover)}
             alt={post.coverAlt}
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"

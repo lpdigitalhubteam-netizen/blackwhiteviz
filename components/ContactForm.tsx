@@ -50,7 +50,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="flex max-w-lg flex-col gap-8">
+    <form onSubmit={onSubmit} className="flex max-w-lg flex-col gap-5">
       <input
         type="text"
         name="website"
@@ -61,7 +61,7 @@ export function ContactForm() {
       />
 
       <label className="block">
-        <span className="mb-3 block text-[10px] tracking-[0.22em] text-muted uppercase">
+        <span className="mb-2 block text-[10px] tracking-[0.22em] text-muted uppercase">
           Name
         </span>
         <input
@@ -69,11 +69,11 @@ export function ContactForm() {
           name="name"
           type="text"
           disabled={status === "loading"}
-          className="w-full border-b border-line bg-transparent py-2 text-sm outline-none transition-colors focus:border-foreground disabled:opacity-60"
+          className="w-full border-b border-line bg-transparent py-1.5 text-sm outline-none transition-colors focus:border-foreground disabled:opacity-60"
         />
       </label>
       <label className="block">
-        <span className="mb-3 block text-[10px] tracking-[0.22em] text-muted uppercase">
+        <span className="mb-2 block text-[10px] tracking-[0.22em] text-muted uppercase">
           Email
         </span>
         <input
@@ -81,19 +81,19 @@ export function ContactForm() {
           name="email"
           type="email"
           disabled={status === "loading"}
-          className="w-full border-b border-line bg-transparent py-2 text-sm outline-none transition-colors focus:border-foreground disabled:opacity-60"
+          className="w-full border-b border-line bg-transparent py-1.5 text-sm outline-none transition-colors focus:border-foreground disabled:opacity-60"
         />
       </label>
       <label className="block">
-        <span className="mb-3 block text-[10px] tracking-[0.22em] text-muted uppercase">
+        <span className="mb-2 block text-[10px] tracking-[0.22em] text-muted uppercase">
           Project
         </span>
         <textarea
           required
           name="message"
-          rows={4}
+          rows={2}
           disabled={status === "loading"}
-          className="w-full resize-none border-b border-line bg-transparent py-2 text-sm outline-none transition-colors focus:border-foreground disabled:opacity-60"
+          className="w-full resize-none border-b border-line bg-transparent py-1.5 text-sm outline-none transition-colors focus:border-foreground disabled:opacity-60"
         />
       </label>
 

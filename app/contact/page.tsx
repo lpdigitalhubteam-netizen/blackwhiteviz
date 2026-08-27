@@ -10,20 +10,20 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main>
-      <div className="grid min-h-svh md:grid-cols-2">
-        <div className="flex flex-col justify-end px-5 pt-28 pb-16 md:px-8 md:pt-32 md:pb-16">
-          <p className="mb-4 text-[10px] tracking-[0.28em] text-muted uppercase">
+    <main className="h-dvh overflow-hidden">
+      <div className="grid h-full md:grid-cols-2">
+        <div className="flex h-full flex-col justify-center px-5 pt-24 pb-8 md:px-8 md:pt-20 md:pb-10">
+          <p className="mb-3 text-[10px] tracking-[0.28em] text-muted uppercase">
             06 — Contact
           </p>
-          <h1 className="font-display mb-12 text-5xl font-semibold tracking-tight uppercase md:text-6xl">
+          <h1 className="font-display mb-6 text-4xl font-semibold tracking-tight uppercase md:mb-7 md:text-5xl lg:text-6xl">
             Get in touch
             <br />
             with us.
           </h1>
 
           <Reveal>
-            <address className="mb-12 not-italic">
+            <address className="mb-6 not-italic md:mb-7">
               <a
                 href={`mailto:${site.contact.email}`}
                 className="block text-sm hover:opacity-60"
@@ -34,12 +34,12 @@ export default function ContactPage() {
                 <a
                   key={phone.href}
                   href={phone.href}
-                  className="mt-2 block text-sm hover:opacity-60"
+                  className="mt-1.5 block text-sm hover:opacity-60"
                 >
                   {phone.number}
                 </a>
               ))}
-              <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
+              <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted">
                 {site.contact.address}
               </p>
             </address>
@@ -48,14 +48,14 @@ export default function ContactPage() {
           <ContactForm />
         </div>
 
-        <div className="min-h-[50svh] md:min-h-svh">
+        <div className="relative hidden h-full min-h-0 md:block">
           <Place
-            alt="Contact — dusk exterior still on the review screen"
-            src="/work/danube-diamondz/01.webp"
+            alt="Contact — Tower Three evening exterior"
+            src="/project/Tower3/gcam - 1_evening_rev16 copy.webp"
             ratio="3/4"
             index="—"
             fill
-            className="min-h-[50svh] md:min-h-svh"
+            className="absolute inset-0 h-full w-full"
           />
         </div>
       </div>

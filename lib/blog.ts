@@ -23,7 +23,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-02-12",
     excerpt:
       "Modern development needs more than drawings. Visualization helps investors, buyers, and authorities understand scale, light, and intent before construction.",
-    cover: "/work/danube-diamondz/01.webp",
+    cover: "/project/TOWER2/TOWER DAY RENDER-3 copy.webp",
     coverAlt: "Architectural rendering — residential tower at dusk",
     content: [
       "Real estate decisions are made long before a building is complete. Developers need visuals that communicate design intent clearly to investors, stakeholders, and planning teams.",
@@ -37,7 +37,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-02-04",
     excerpt:
       "Luxury villa purchases are emotional. Exterior renders must sell lifestyle, prestige, and the hour the home should be remembered in.",
-    cover: "/work/coastal-luxury-villa/01.webp",
+    cover: "/project/WATER VILLA/Villa V1_01 Final copy.webp",
     coverAlt: "Villa exterior rendering — waterfront at dusk",
     content: [
       "High-end villa buyers rarely decide from floor plans alone. They want to feel arrival, privacy, material quality, and the relationship between architecture and landscape.",
@@ -51,7 +51,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-01-22",
     excerpt:
       "Photos show how a space looks. Floor plans show how it works—layout, flow, and proportion at a glance.",
-    cover: "/work/danube-bayz-102/02.webp",
+    cover: "/project/nshama/Lobby copy.webp",
     coverAlt: "3D interior — living room layout",
     content: [
       "Property marketing needs both emotion and clarity. While renders create desire, 3D floor plans reduce confusion about room sizes, circulation, and furniture placement.",
@@ -65,7 +65,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-01-10",
     excerpt:
       "A render is only as clear as the brief behind it. Missing references early often means extra revisions later.",
-    cover: "/work/urban-tower/02.webp",
+    cover: "/project/TOWER1/Tower view 01_02 copy.webp",
     coverAlt: "Exterior rendering — street elevation study",
     content: [
       "The best renders start before modeling. Camera intent, material references, landscape direction, and the target audience should be defined upfront.",
@@ -79,7 +79,7 @@ export const blogPosts: BlogPost[] = [
     date: "2025-12-18",
     excerpt:
       "Buyers scroll fast. Content must be platform-native, authentic, and tailored to how people consume property online.",
-    cover: "/work/city-mall/01.webp",
+    cover: "/project/Fort/cam - 1.jpg copy.webp",
     coverAlt: "Commercial rendering — night facade",
     content: [
       "In 2026, presence alone is not enough. Developers need visuals formatted for each channel—hero stills, short motion, detail crops, and vertical cuts for social.",
@@ -93,7 +93,7 @@ export const blogPosts: BlogPost[] = [
     date: "2025-12-02",
     excerpt:
       "Static images introduce a project. Walkthroughs let buyers move through it—understanding space the way they would in person.",
-    cover: "/work/water-island/02.webp",
+    cover: "/project/Tower3/gcam - 1_evening_rev16 copy.webp",
     coverAlt: "Masterplan rendering — marina promenade",
     content: [
       "Walkthrough animation answers questions stills cannot: sequence, scale, and the feeling of moving from street to lobby to living room.",
@@ -107,7 +107,7 @@ export const blogPosts: BlogPost[] = [
     date: "2025-11-14",
     excerpt:
       "Both formats look similar at first glance, but they serve different stages of the buyer journey.",
-    cover: "/work/desert-villa/01.webp",
+    cover: "/project/KENYA-VILLA/f3 copy.webp",
     coverAlt: "Desert villa exterior — day render",
     content: [
       "A CGI walkthrough is built from plans—it shows the designed future. A virtual tour captures a finished space as it exists on site.",
@@ -121,7 +121,7 @@ export const blogPosts: BlogPost[] = [
     date: "2025-10-28",
     excerpt:
       "The strongest renders suggest a moment—before or after the one shown—so the viewer imagines life in the space.",
-    cover: "/work/farm-house/02.webp",
+    cover: "/project/heretage/Majlis copy.webp",
     coverAlt: "Landscape rendering — courtyard and planting",
     content: [
       "Storytelling in visualization is not decoration. It is framing, light, implied human presence, and the sequence of what the eye reads first.",

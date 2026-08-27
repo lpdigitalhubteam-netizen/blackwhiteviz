@@ -44,36 +44,36 @@ export default function Home() {
 
           <Collage>
             <Place
-              alt="Coastal villa — living terrace"
-              src="/work/coastal-luxury-villa/02.webp"
+              alt="Water Villa — coastal exterior"
+              src="/project/WATER VILLA/Villa V1_01 Final copy.webp"
               ratio="16/9"
               tile="wide"
-              href="/work/coastal-luxury-villa"
-              hover="Coastal Luxury Villa"
+              href="/work/water-villa"
+              hover="Water Villa"
             />
             <Place
-              alt="Desert villa — night"
-              src="/work/desert-villa/02.webp"
+              alt="Tower Two — night"
+              src="/project/TOWER2/TOWER NIGHT VIEW copy.webp"
               ratio="16/9"
               tile="tall"
-              href="/work/desert-villa"
-              hover="Desert Villa"
+              href="/work/tower-2"
+              hover="Tower Two"
             />
             <Place
-              alt="Bayz 102 — night interior"
-              src="/work/danube-bayz-102/03.webp"
+              alt="Nshama — lobby"
+              src="/project/nshama/Lobby copy.webp"
               ratio="16/9"
               tile="mid"
-              href="/work/danube-bayz-102"
-              hover="Danube Bayz 102"
+              href="/work/nshama"
+              hover="Nshama"
             />
             <Place
-              alt="Urban tower — night"
-              src="/work/urban-tower/03.webp"
+              alt="Kenya Villa — night"
+              src="/project/KENYA-VILLA/Villa - Night copy.webp"
               ratio="16/9"
               tile="mid"
-              href="/work/urban-tower"
-              hover="Urban Tower"
+              href="/work/kenya-villa"
+              hover="Kenya Villa"
             />
           </Collage>
         </div>

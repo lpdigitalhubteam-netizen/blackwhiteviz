@@ -115,7 +115,7 @@ export default function AboutPage() {
       {/* 1 — Hero scrolls over the fixed under-image */}
       <section className="relative z-20 h-[58svh] min-h-[26rem] overflow-hidden bg-background md:h-[70svh] md:min-h-[34rem]">
         <Image
-          src="/work/coastal-luxury-villa/01.webp"
+          src={encodeURI("/project/WATER VILLA/Villa V1_01 Final copy.webp")}
           alt="About us — Blackwhite Viz architectural visualization"
           fill
           priority
@@ -171,7 +171,7 @@ export default function AboutPage() {
           </Reveal>
 
           <StickyScrollImage
-            src="/work/urban-tower/03.webp"
+            src="/project/TOWER2/TOWER DAY RENDER-3 copy.webp"
             alt="Blackwhite Viz — urban tower night visualization"
           />
         </div>
@@ -258,7 +258,7 @@ export default function AboutPage() {
         <Reveal className="relative overflow-hidden">
           <Place
             alt="About — desert villa dusk materials and glass"
-            src="/work/desert-villa/02.webp"
+            src="/project/KENYA-VILLA/Villa - Night copy.webp"
             ratio="21/9"
             index="03"
           />

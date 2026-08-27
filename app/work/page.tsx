@@ -8,14 +8,14 @@ export const metadata: Metadata = {
 };
 
 const workItems = [
-  { slug: "coastal-luxury-villa", tile: "wide" },
-  { slug: "urban-tower", tile: "tall" },
-  { slug: "water-island", tile: "third" },
-  { slug: "city-mall", tile: "third" },
-  { slug: "danube-diamondz", tile: "third" },
-  { slug: "desert-villa", tile: "tall" },
-  { slug: "farm-house", tile: "wide" },
-  { slug: "danube-bayz-102", tile: "full" },
+  { slug: "water-villa", tile: "wide" },
+  { slug: "tower-2", tile: "tall" },
+  { slug: "kenya-villa", tile: "third" },
+  { slug: "nshama", tile: "third" },
+  { slug: "fort", tile: "third" },
+  { slug: "tower-3", tile: "tall" },
+  { slug: "heritage", tile: "wide" },
+  { slug: "interior", tile: "full" },
 ] as const;
 
 export default function WorkPage() {

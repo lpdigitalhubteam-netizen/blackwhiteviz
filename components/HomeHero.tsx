@@ -38,7 +38,7 @@ export function HomeHero() {
             transition={{ duration: HOLD_MS / 1000, ease: "linear" }}
           >
             <Image
-              src={slide.src}
+              src={encodeURI(slide.src)}
               alt={slide.alt}
               fill
               priority={index === 0}
