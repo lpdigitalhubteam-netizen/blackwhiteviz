@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="h-dvh overflow-hidden">
-      <div className="grid h-full md:grid-cols-2">
-        <div className="flex h-full flex-col justify-center px-5 pt-24 pb-8 md:px-8 md:pt-20 md:pb-10">
+    <main>
+      <div className="grid md:grid-cols-2">
+        <div className="flex flex-col justify-center px-5 pt-28 pb-12 md:min-h-[85svh] md:px-8 md:pt-24 md:pb-12">
           <p className="mb-3 text-[10px] tracking-[0.28em] text-muted uppercase">
             06 — Contact
           </p>
@@ -48,14 +48,14 @@ export default function ContactPage() {
           <ContactForm />
         </div>
 
-        <div className="relative hidden h-full min-h-0 md:block">
+        <div className="relative min-h-[42svh] md:min-h-[85svh]">
           <Place
             alt="Contact — Tower Three evening exterior"
             src="/project/Tower3/gcam - 1_evening_rev16 copy.webp"
             ratio="3/4"
             index="—"
             fill
-            className="absolute inset-0 h-full w-full"
+            className="absolute inset-0 h-full w-full min-h-[42svh] md:min-h-[85svh]"
           />
         </div>
       </div>

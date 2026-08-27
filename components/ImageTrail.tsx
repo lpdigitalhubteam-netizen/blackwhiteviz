@@ -5,11 +5,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { homeHeroSlides } from "@/lib/home";
 
 const ease = [0.22, 1, 0.36, 1] as const;
-const GAP = 88;
-const LIFE_MS = 1000;
+const GAP = 64;
+const LIFE_MS = 900;
 const MAX = 7;
-const IMG_W = 240;
-const IMG_H = 300;
 
 type Popup = {
   id: number;
@@ -20,18 +18,23 @@ type Popup = {
   rotate: number;
 };
 
-function navRect() {
-  return document.querySelector("[data-menu-nav]")?.getBoundingClientRect() ?? null;
+function mediaSrc(src: string) {
+  return src
+    .split("/")
+    .map((part) => (part ? encodeURIComponent(part) : ""))
+    .join("/");
 }
 
-function imageCoversNav(clientX: number, clientY: number) {
-  const nav = navRect();
+const slides = homeHeroSlides.map((slide) => ({
+  ...slide,
+  src: mediaSrc(slide.src),
+}));
+
+function overNavLinks(clientX: number, clientY: number) {
+  const nav = document.querySelector("[data-menu-nav]");
   if (!nav) return false;
-  const left = clientX - IMG_W / 2;
-  const right = clientX + IMG_W / 2;
-  const top = clientY - IMG_H / 2;
-  const bottom = clientY + IMG_H / 2;
-  return !(right < nav.left || left > nav.right || bottom < nav.top || top > nav.bottom);
+  const el = document.elementFromPoint(clientX, clientY);
+  return Boolean(el && nav.contains(el));
 }
 
 export function ImageTrail({ active }: { active: boolean }) {
@@ -41,26 +44,32 @@ export function ImageTrail({ active }: { active: boolean }) {
   const seq = useRef(0);
   const img = useRef(0);
   const timers = useRef<number[]>([]);
+  const raf = useRef(0);
+  const pending = useRef<MouseEvent | null>(null);
+
+  // Warm cache in the background — don’t block the trail on it
+  useEffect(() => {
+    if (!active) return;
+    for (const slide of slides) {
+      const image = new window.Image();
+      image.src = slide.src;
+    }
+  }, [active]);
 
   useEffect(() => {
     if (!active) {
       timers.current.forEach((id) => window.clearTimeout(id));
       timers.current = [];
+      if (raf.current) cancelAnimationFrame(raf.current);
+      raf.current = 0;
+      pending.current = null;
       setPopups([]);
       last.current = { x: -999, y: -999 };
       return;
     }
 
-    function clearTrail() {
-      setPopups((current) => (current.length === 0 ? current : []));
-    }
-
-    function onMove(event: MouseEvent) {
-      if (imageCoversNav(event.clientX, event.clientY)) {
-        clearTrail();
-        last.current = { x: -999, y: -999 };
-        return;
-      }
+    function spawn(event: MouseEvent) {
+      if (overNavLinks(event.clientX, event.clientY)) return;
 
       const box = root.current?.getBoundingClientRect();
       if (!box || box.width < 40 || box.height < 40) return;
@@ -72,7 +81,7 @@ export function ImageTrail({ active }: { active: boolean }) {
       if (distance < GAP) return;
       last.current = { x: event.clientX, y: event.clientY };
 
-      const slide = homeHeroSlides[img.current % homeHeroSlides.length];
+      const slide = slides[img.current % slides.length];
       img.current += 1;
       const id = seq.current++;
 
@@ -84,19 +93,33 @@ export function ImageTrail({ active }: { active: boolean }) {
           y: event.clientY - box.top,
           src: slide.src,
           alt: slide.alt,
-          rotate: (Math.random() - 0.5) * 16,
+          rotate: (Math.random() - 0.5) * 14,
         },
       ]);
 
       const timer = window.setTimeout(() => {
         setPopups((current) => current.filter((item) => item.id !== id));
+        timers.current = timers.current.filter((t) => t !== timer);
       }, LIFE_MS);
       timers.current.push(timer);
     }
 
-    window.addEventListener("mousemove", onMove);
+    function onMove(event: MouseEvent) {
+      pending.current = event;
+      if (raf.current) return;
+      raf.current = requestAnimationFrame(() => {
+        raf.current = 0;
+        const next = pending.current;
+        pending.current = null;
+        if (next) spawn(next);
+      });
+    }
+
+    window.addEventListener("mousemove", onMove, { passive: true });
     return () => {
       window.removeEventListener("mousemove", onMove);
+      if (raf.current) cancelAnimationFrame(raf.current);
+      raf.current = 0;
       timers.current.forEach((id) => window.clearTimeout(id));
       timers.current = [];
     };
@@ -107,16 +130,16 @@ export function ImageTrail({ active }: { active: boolean }) {
       ref={root}
       className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
     >
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {popups.map((item) => (
           <motion.div
             key={item.id}
-            className="absolute w-44 overflow-hidden md:w-60"
+            className="absolute w-40 will-change-transform md:w-52"
             style={{ left: item.x, top: item.y }}
             initial={{
               opacity: 0,
-              scale: 0.5,
-              rotate: item.rotate - 10,
+              scale: 0.78,
+              rotate: item.rotate - 6,
               x: "-50%",
               y: "-50%",
             }}
@@ -127,12 +150,18 @@ export function ImageTrail({ active }: { active: boolean }) {
               x: "-50%",
               y: "-50%",
             }}
-            exit={{ opacity: 0, scale: 0.88, x: "-50%", y: "-50%" }}
-            transition={{ duration: 0.38, ease }}
+            exit={{
+              opacity: 0,
+              scale: 0.94,
+              x: "-50%",
+              y: "-50%",
+            }}
+            transition={{ duration: 0.22, ease }}
           >
             <img
               src={item.src}
               alt={item.alt}
+              draggable={false}
               className="aspect-[4/5] w-full object-cover"
             />
           </motion.div>

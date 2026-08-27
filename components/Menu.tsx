@@ -58,7 +58,7 @@ export function Menu({
                         {item.index}
                       </span>
                       <span
-                        className={`font-display text-5xl leading-[0.95] font-semibold tracking-tight uppercase md:text-7xl lg:text-8xl ${
+                        className={`font-display text-4xl leading-[0.95] font-semibold tracking-tight uppercase md:text-6xl lg:text-7xl ${
                           current
                             ? "text-foreground"
                             : "text-foreground/35 group-hover:text-foreground"
