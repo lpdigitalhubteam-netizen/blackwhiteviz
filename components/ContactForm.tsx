@@ -18,7 +18,8 @@ export function ContactForm() {
     const data = new FormData(event.currentTarget);
     const name = String(data.get("name") ?? "").trim();
     const email = String(data.get("email") ?? "").trim();
-    const message = String(data.get("message") ?? "").trim();
+    const company = String(data.get("company") ?? "").trim();
+    const phone = String(data.get("phone") ?? "").trim();
     const website = String(data.get("website") ?? "").trim();
 
     try {
@@ -26,11 +27,11 @@ export function ContactForm() {
         source: "contact",
         name,
         email,
-        message,
+        company,
+        phone,
         website,
       });
       setStatus("success");
-      event.currentTarget.reset();
     } catch (err) {
       setStatus("error");
       setError(err instanceof Error ? err.message : "Something went wrong.");
@@ -86,14 +87,27 @@ export function ContactForm() {
       </label>
       <label className="block">
         <span className="mb-2 block text-[10px] tracking-[0.22em] text-muted uppercase">
-          Project
+          Company name
         </span>
-        <textarea
+        <input
           required
-          name="message"
-          rows={2}
+          name="company"
+          type="text"
           disabled={status === "loading"}
-          className="w-full resize-none border-b border-line bg-transparent py-1.5 text-sm outline-none transition-colors focus:border-foreground disabled:opacity-60"
+          className="w-full border-b border-line bg-transparent py-1.5 text-sm outline-none transition-colors focus:border-foreground disabled:opacity-60"
+        />
+      </label>
+      <label className="block">
+        <span className="mb-2 block text-[10px] tracking-[0.22em] text-muted uppercase">
+          Phone number
+        </span>
+        <input
+          required
+          name="phone"
+          type="tel"
+          inputMode="tel"
+          disabled={status === "loading"}
+          className="w-full border-b border-line bg-transparent py-1.5 text-sm outline-none transition-colors focus:border-foreground disabled:opacity-60"
         />
       </label>
 

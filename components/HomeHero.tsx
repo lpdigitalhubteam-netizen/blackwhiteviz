@@ -66,7 +66,9 @@ export function HomeHero() {
             transition={{ duration: 0.95, delay: 0.08, ease }}
           >
             <span className="block">{slide.lines[0]}</span>
-            <span className="block text-white/50">{slide.lines[1]}</span>
+            {slide.lines[1] ? (
+              <span className="block text-white/50">{slide.lines[1]}</span>
+            ) : null}
           </motion.h1>
 
           <motion.p

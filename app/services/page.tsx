@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Place } from "@/components/Place";
 import { Reveal } from "@/components/Reveal";
+import { absoluteTitle, seo } from "@/lib/seo";
 import { servicePages } from "@/lib/services";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: absoluteTitle(seo.services.title),
+  description: seo.services.description,
 };
 
 export default function ServicesPage() {
@@ -14,9 +16,12 @@ export default function ServicesPage() {
       <p className="mb-4 text-[10px] tracking-[0.28em] text-muted uppercase">
         04 — Services
       </p>
-      <h1 className="font-display mb-16 text-5xl leading-[1.05] font-semibold tracking-tight uppercase md:mb-24 md:text-7xl">
-        Services
+      <h1 className="font-display mb-8 text-5xl leading-[1.05] font-semibold tracking-tight uppercase md:text-7xl">
+        3D Rendering Services
       </h1>
+      <p className="mb-16 max-w-3xl text-sm leading-relaxed text-muted md:mb-24 md:text-base">
+        {seo.services.intro}
+      </p>
 
       <div className="flex flex-col gap-20 md:gap-28">
         {servicePages.map((service, i) => (

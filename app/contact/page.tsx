@@ -4,8 +4,11 @@ import { ContactForm } from "@/components/ContactForm";
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
 
+import { absoluteTitle, seo } from "@/lib/seo";
+
 export const metadata: Metadata = {
-  title: "Contact",
+  title: absoluteTitle(seo.contact.title),
+  description: seo.contact.description,
 };
 
 export default function ContactPage() {
@@ -23,6 +26,9 @@ export default function ContactPage() {
           </h1>
 
           <Reveal>
+            <p className="mb-6 max-w-md text-sm leading-relaxed text-muted md:mb-7">
+              {seo.contact.intro}
+            </p>
             <address className="mb-6 not-italic md:mb-7">
               <a
                 href={`mailto:${site.contact.email}`}

@@ -39,7 +39,6 @@ async function sendViaHostingerHttp(
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${secret}`,
-      "X-Mail-Secret": secret,
     },
     body: JSON.stringify({ subject, text, html, replyTo }),
   });
@@ -72,40 +71,30 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "A valid email is required." }, { status: 400 });
   }
 
-  const person = (payload.firstName ?? payload.name)?.trim();
-  if (!person) {
+  const name = payload.name?.trim();
+  if (!name) {
     return NextResponse.json({ error: "Name is required." }, { status: 400 });
   }
 
-  if (payload.source === "price-guidelines" && !payload.company?.trim()) {
-    return NextResponse.json(
-      { error: "Company name is required." },
-      { status: 400 },
-    );
+  const company = payload.company?.trim();
+  if (!company) {
+    return NextResponse.json({ error: "Company name is required." }, { status: 400 });
   }
 
-  if (
-    payload.source === "price-guidelines" &&
-    (!payload.phone?.trim() || !isValidPhone(payload.phone.trim()))
-  ) {
+  const phone = payload.phone?.trim();
+  if (!phone || !isValidPhone(phone)) {
     return NextResponse.json(
       { error: "A valid phone number is required." },
       { status: 400 },
     );
   }
 
-  if (payload.source === "contact" && !payload.message?.trim()) {
-    return NextResponse.json({ error: "Message is required." }, { status: 400 });
-  }
-
   const normalized: EnquiryPayload = {
     ...payload,
+    name,
     email,
-    firstName: payload.firstName?.trim(),
-    name: payload.name?.trim(),
-    company: payload.company?.trim(),
-    phone: payload.phone?.trim(),
-    message: payload.message?.trim(),
+    company,
+    phone,
   };
 
   const subject = enquirySubject(normalized);
@@ -140,8 +129,26 @@ export async function POST(request: Request) {
     });
   } catch (error) {
     console.error("Mail error:", error);
+    const code =
+      error && typeof error === "object" && "code" in error
+        ? String((error as { code?: string }).code)
+        : "";
+    const response =
+      error && typeof error === "object" && "response" in error
+        ? String((error as { response?: string }).response ?? "")
+        : "";
+    let hint = "";
+    if (process.env.NODE_ENV === "development") {
+      if (code === "EAUTH") {
+        hint =
+          " SMTP login failed — confirm you can sign in at Hostinger webmail, then set SMTP_HOST (smtp.titan.email for Titan, smtp.hostinger.com for Hostinger Email), SMTP_USER, and the new SMTP_PASS in .env.local and restart npm run dev.";
+      } else if (response.includes("dkim")) {
+        hint =
+          " DKIM is missing in DNS — in Hostinger hPanel go to Emails → Manage → Email Reputation → Add DKIM record, copy the TXT record into DNS for blackwhiteviz.com, verify, wait up to 30 minutes, then try again.";
+      }
+    }
     return NextResponse.json(
-      { error: "Could not send enquiry email." },
+      { error: `Could not send enquiry email.${hint}` },
       { status: 502 },
     );
   }

@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import { Collage, Place } from "@/components/Place";
 import { Reveal, RevealItem, RevealList } from "@/components/Reveal";
 import { getProject, tileClass } from "@/lib/projects";
+import { absoluteTitle, seo } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Work",
+  title: absoluteTitle(seo.work.title),
+  description: seo.work.description,
 };
 
 const workItems = [
@@ -26,8 +28,11 @@ export default function WorkPage() {
           02 — Work
         </p>
         <h1 className="font-display text-5xl leading-[1.05] font-semibold tracking-tight text-foreground uppercase md:text-7xl">
-          Selected Work
+          Our Work
         </h1>
+        <p className="mt-6 max-w-3xl text-sm leading-relaxed text-muted md:text-base">
+          {seo.work.intro}
+        </p>
       </Reveal>
 
       <RevealList>

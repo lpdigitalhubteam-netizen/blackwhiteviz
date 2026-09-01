@@ -5,57 +5,57 @@ const cover = (file: string) => projectSrc("website Cover", file);
 export const homeHeroSlides = [
   {
     src: cover("Website cover copy.webp"),
-    alt: "Blackwhite Viz — website cover still",
-    title: "Blackwhite Viz",
-    kicker: "3D Visualization — Dubai",
-    lines: ["Blackwhite Viz,", "The work, first."],
+    alt: "3D visualization in Dubai — Blackwhite Viz",
+    title: "3D Visualization in Dubai",
+    kicker: "Blackwhite Viz",
+    lines: ["3D Visualization", "In Dubai"],
     paragraph:
-      "Photoreal stills for architects, developers, and design teams — so a project can be seen, sold, and decided before it is built.",
+      "Photoreal renders for architects, developers, and real estate brands.",
   },
   {
     src: cover("Villa V4_01 Final copy.webp"),
-    alt: "Water Villa — coastal exterior still",
+    alt: "Water Villa 3D rendering — exterior",
     title: "Water Villa",
-    kicker: "3D Visualization — Dubai",
-    lines: ["Water Villa,", "Coastal light, finished calm."],
+    kicker: "Exterior rendering",
+    lines: ["Water Villa", "3D Rendering"],
     paragraph:
-      "A waterfront villa render that shows material, glass, and the exact hour the home should feel finished—before construction begins.",
+      "Exterior visuals that bring luxury living closer to reality.",
   },
   {
     src: cover("sunrise copy.webp"),
-    alt: "Sunrise architectural visualization",
-    title: "Sunrise",
-    kicker: "3D Visualization — Dubai",
-    lines: ["Sunrise,", "The hour the facade is remembered."],
+    alt: "Architectural rendering — sunrise facade",
+    title: "Architectural Rendering",
+    kicker: "Architecture",
+    lines: ["Architectural", "Rendering"],
     paragraph:
-      "Early light, warm glass, and a still that holds the first hour of the day—clear enough for approvals and sales.",
+      "Light, material, and form captured before construction begins.",
   },
   {
     src: cover("Pool lady remove.jpg copy.webp"),
-    alt: "Pool — residential amenity still",
-    title: "Pool",
-    kicker: "3D Visualization — Dubai",
-    lines: ["Pool,", "Water, shade, and arrival."],
+    alt: "Real estate visualization — pool and amenities",
+    title: "Real Estate Visualization",
+    kicker: "Amenity & lifestyle",
+    lines: ["Real Estate", "Visualization"],
     paragraph:
-      "A pool still that holds amenity and landscape in one frame—clear enough for marketing and design review.",
+      "Amenities, pools, and lifestyle spaces made easier to present.",
   },
   {
     src: cover("Remove family.jpg copy.webp"),
-    alt: "Residence — exterior still",
-    title: "Residence",
-    kicker: "3D Visualization — Dubai",
-    lines: ["Residence,", "The home, without distraction."],
+    alt: "Residential 3D renders — exterior",
+    title: "Residential 3D Renders",
+    kicker: "Residential",
+    lines: ["Residential", "3D Renders"],
     paragraph:
-      "A residential still focused on architecture and light—so the design can be approved on its own terms.",
+      "Clean visuals that help clients understand the design clearly.",
   },
   {
     src: cover("Storytelling copy.webp"),
-    alt: "Storytelling — interior still",
-    title: "Storytelling",
-    kicker: "3D Visualization — Dubai",
-    lines: ["Storytelling,", "Interior light, lived mood."],
+    alt: "Heritage space visualization — interior",
+    title: "Heritage Space Visualization",
+    kicker: "Heritage & culture",
+    lines: ["Heritage Space", "Visualization"],
     paragraph:
-      "An interior still built for atmosphere—so stakeholders can read the space as a finished photograph.",
+      "Cultural environments recreated with detail, mood, and realism.",
   },
 ] as const;
 
@@ -66,8 +66,9 @@ export const homeHeroCopy = {
 export const homeAbout = {
   kicker: "About us",
   title: "Blackwhite Viz by Latheif Productions",
-  lead: "Blackwhite Viz is a 3D visualization studio by Latheif Productions. We work with architects, real estate developers, and design teams to produce photoreal stills, animations, and aerials — so a project can be seen, sold, and decided before it is built.",
-  body: "From villas and towers to malls, masterplans, and interiors, each frame is built with the same care as the design itself: light, material, and the hour the building should be remembered in.",
+  lead:
+    "Blackwhite Viz is a Dubai-based 3D rendering company producing photorealistic architectural visualization for villas, towers, malls, and masterplans.",
+  body: "We help architects, developers, and design teams present a project with clarity and impact — before a single wall is built.",
 };
 
 export const homeServices = [
@@ -89,8 +90,8 @@ export const homeServices = [
   },
   {
     slug: "animations",
-    title: "3D Animations",
-    line: "Walkthroughs and cinematic sequences when a still is not enough — approach, arrival, and the room as you would move through it.",
+    title: "Walkthroughs & Floor Plans",
+    line: "Cinematic walkthroughs when a still is not enough — plus 2D and 3D floor plans for clear layout and flow.",
     href: "/services/3d-walkthrough-videos",
     stills: [
       {
@@ -123,7 +124,7 @@ export const homeServices = [
     slug: "aerial",
     title: "Aerial & Landscape",
     line: "Masterplans, gardens, and the plot from the air. How the project meets the city, the coast, or the sand.",
-    href: "/services/3d-architectural-rendering",
+    href: "/services/landscape-rendering",
     stills: [
       {
         src: projectSrc("Fort", "cam - 2 copy.webp"),

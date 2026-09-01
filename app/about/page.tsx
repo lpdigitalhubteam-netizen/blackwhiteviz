@@ -6,10 +6,11 @@ import { Reveal } from "@/components/Reveal";
 import { StickyScrollImage } from "@/components/StickyScrollImage";
 import { site } from "@/lib/site";
 
+import { absoluteTitle, seo } from "@/lib/seo";
+
 export const metadata: Metadata = {
-  title: "About",
-  description:
-    "Blackwhite Viz is a Dubai-based 3D visualization studio for photoreal architectural and interior rendering across UAE, Africa, Sri Lanka, and India.",
+  title: absoluteTitle(seo.about.title),
+  description: seo.about.description,
 };
 
 const pillars = [
@@ -132,9 +133,9 @@ export default function AboutPage() {
               About us
             </p>
             <h1 className="font-serif text-[2.35rem] leading-[1.08] font-normal tracking-tight text-white italic sm:text-5xl md:text-6xl lg:text-[4.25rem]">
-              3D Rendering Studio for Visual
+              Architectural Visualization
               <br />
-              Storytelling
+              Company, UAE
             </h1>
           </div>
         </div>
@@ -151,16 +152,11 @@ export default function AboutPage() {
               Powered by {site.parent}
             </p>
             <p className="mt-7 max-w-xl text-sm leading-[1.85] text-muted md:text-[15px]">
-              Blackwhite Viz is a Dubai-based 3D rendering studio specializing in
-              high-end architectural and interior visualizations. We create
-              photorealistic renders designed to sell by focusing on the details
-              that matter — accurate materials, natural-looking lighting, and
-              visuals that clearly tell the project&apos;s story. Working with
-              clients across {site.regions.join(", ")}, we support developers,
-              architects, and brands. Whether you are planning a concept launch,
-              putting together a sales deck, or creating a complete set of
-              marketing assets, we deliver high-quality visuals that look premium
-              and feel convincing.
+              {seo.about.intro} Working with clients across{" "}
+              {site.regions.join(", ")}, we support developers, architects, and
+              brands with photoreal stills, animations, and aerials — whether you
+              are planning a concept launch, putting together a sales deck, or
+              creating a complete set of marketing assets.
             </p>
             <Link
               href="/services"

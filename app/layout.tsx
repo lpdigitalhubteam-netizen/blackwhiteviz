@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteChrome } from "@/components/SiteChrome";
-import { site } from "@/lib/site";
+import { seo } from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,10 +12,10 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   title: {
-    default: "Blackwhite Viz — 3D Visualization, Dubai",
-    template: "%s — Blackwhite Viz",
+    default: seo.home.title,
+    template: "%s",
   },
-  description: site.tagline,
+  description: seo.home.description,
   icons: {
     icon: [{ url: "/logo/favicon.webp", type: "image/webp" }],
     apple: [{ url: "/logo/favicon.webp", type: "image/webp" }],

@@ -22,7 +22,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const service = getService(slug);
   if (!service) return { title: "Service" };
-  return { title: service.title };
+  return {
+    title: { absolute: service.metaTitle },
+    description: service.metaDescription,
+  };
 }
 
 export default async function ServiceDetailPage({ params }: Props) {

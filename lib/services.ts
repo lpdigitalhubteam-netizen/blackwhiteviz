@@ -11,6 +11,8 @@ export type ServiceStill = {
 export type ServicePage = {
   slug: string;
   title: string;
+  metaTitle: string;
+  metaDescription: string;
   kicker: string;
   line: string;
   body: string;
@@ -24,9 +26,12 @@ export const servicePages: ServicePage[] = [
   {
     slug: "3d-architectural-rendering",
     title: "3D Architectural Rendering",
+    metaTitle: "3D Exterior Rendering Services Dubai | Blackwhite Viz",
+    metaDescription:
+      "Exterior rendering services for architects and developers — photoreal villa and building exteriors that sell a project before it's built.",
     kicker: "01 — Rendering",
-    line: "A transformation of blueprints into captivating, photorealistic renders.",
-    body: "We light, material, and finish exteriors and architecture until the frame can stand in for the building. For architects, developers, and marketing teams who need towers, villas, and commercial volumes to sell with clarity — day through night.",
+    line: "Our exterior rendering services turn blueprints into photoreal stills — from villa exterior rendering in Dubai to towers and masterplans.",
+    body: "Built for architects who need a render that holds up to scrutiny and closes a sale. We light, material, and finish exteriors until the frame can stand in for the building — day through night.",
     hero: projectSrc("TOWER2", "TOWER DAY RENDER-3 copy.webp"),
     heroAlt: "3D architectural rendering — tower day",
     stills: [
@@ -75,11 +80,56 @@ export const servicePages: ServicePage[] = [
     ],
   },
   {
+    slug: "landscape-rendering",
+    title: "Landscape Rendering",
+    metaTitle: "Landscape 3D Rendering for Developers | Blackwhite Viz",
+    metaDescription:
+      "Landscape 3D rendering for developers — amenity, greenery, and site context rendered with the same precision as the architecture.",
+    kicker: "02 — Landscape",
+    line: "Landscape 3D rendering for developers brings pools, gardens, and site context into the same frame as the architecture.",
+    body: "So the full picture sells, not just the building. We render amenity, greenery, and surroundings with the same precision as the architecture — for masterplans, villas, and towers across Dubai and the Gulf.",
+    hero: projectSrc("Fort", "cam - 2 copy.webp"),
+    heroAlt: "Landscape 3D rendering — site context and greenery",
+    stills: [
+      {
+        src: projectSrc("Fort", "cam - 2 copy.webp"),
+        alt: "Fort — landscape context",
+        title: "Fort",
+        href: "/work/fort",
+        tile: "wide",
+      },
+      {
+        src: projectSrc("nshama", "pool copy.webp"),
+        alt: "Nshama — pool and landscape",
+        title: "Nshama",
+        href: "/work/nshama",
+        tile: "tall",
+      },
+      {
+        src: projectSrc("WATER VILLA", "Villa V1_01 Final copy.webp"),
+        alt: "Water Villa — coastal landscape",
+        title: "Water Villa",
+        href: "/work/water-villa",
+        tile: "mid",
+      },
+      {
+        src: projectSrc("KENYA-VILLA", "f3 copy.webp"),
+        alt: "Kenya Villa — garden context",
+        title: "Kenya Villa",
+        href: "/work/kenya-villa",
+        tile: "mid",
+      },
+    ],
+  },
+  {
     slug: "3d-interior-renderings",
     title: "3D Interior Renderings",
-    kicker: "02 — Interior",
-    line: "A journey through interiors, marked by meticulous detail and elegance.",
-    body: "Living rooms, lobbies, and private suites with furniture, material, and daylight that feel finished. We craft interior stills for sales decks, design approvals, and brand storytelling.",
+    metaTitle: "3D Interior Rendering Services | Blackwhite Viz",
+    metaDescription:
+      "3D interior rendering services for real estate — photorealistic interiors that let clients read a space as a finished photograph.",
+    kicker: "03 — Interior",
+    line: "We produce interior rendering for real estate that captures material, light, and atmosphere with precision.",
+    body: "So stakeholders can approve a design on sight, not on imagination. Living rooms, lobbies, and private suites with furniture, material, and daylight that feel finished — for sales decks, design approvals, and brand storytelling.",
     hero: projectSrc("nshama", "Lobby copy.webp"),
     heroAlt: "3D interior rendering — lobby",
     stills: [
@@ -123,9 +173,12 @@ export const servicePages: ServicePage[] = [
   {
     slug: "interior-design-support",
     title: "Interior Design Support",
-    kicker: "03 — Design",
-    line: "Strategic interior design support that bridges creative vision and precise 3D visualization.",
-    body: "We partner with interior designers and fit-out teams to test layouts, materials, and mood before procurement. Visuals that help clients decide faster — furniture, lighting, and finishes in context.",
+    metaTitle: "Interior Design Support Services | Blackwhite Viz",
+    metaDescription:
+      "Interior design support services that bridge creative vision and precise 3D visualization for design teams and developers.",
+    kicker: "04 — Design",
+    line: "Our interior design support services bridge concept and visualization.",
+    body: "Helping design teams test material, layout, and lighting decisions before committing to production. We partner with interior designers and fit-out teams to test layouts, materials, and mood before procurement.",
     hero: projectSrc("INTERIOR", "02 copy.webp"),
     heroAlt: "Interior design support — material study",
     stills: [
@@ -162,9 +215,12 @@ export const servicePages: ServicePage[] = [
   {
     slug: "ar-vr",
     title: "AR/VR",
-    kicker: "04 — Immersive",
-    line: "The future of interactive presentations, where reality meets the virtual world.",
-    body: "Immersive experiences for launches and stakeholder reviews. We prepare spatial content that lets clients step into the unbuilt — ideal for sales galleries and remote approvals.",
+    metaTitle: "AR VR Real Estate Visualization Dubai | Blackwhite Viz",
+    metaDescription:
+      "AR VR real estate visualization that lets buyers and stakeholders step into a project before it's built.",
+    kicker: "05 — Immersive",
+    line: "AR VR real estate visualization takes interior and exterior renders further.",
+    body: "Letting buyers and stakeholders walk through a space interactively, before construction begins. Immersive experiences for launches and stakeholder reviews — ideal for sales galleries and remote approvals.",
     hero: projectSrc("TOWER1", "Tower view 01_02 copy.webp"),
     heroAlt: "AR/VR visualization — tower view",
     stills: [
@@ -200,17 +256,20 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "3d-walkthrough-videos",
-    title: "3D Walk-Through Videos",
-    kicker: "05 — Film",
-    line: "Cinematic experiences that breathe life into your projects.",
-    body: "Approach, arrival, and movement through the space. High-end walkthroughs and cinematic sequences for developers and architects who need more than a still — aerials, interiors, and timed reveals.",
+    title: "3D Walkthrough Videos / 2D & 3D Floor Plans",
+    metaTitle: "3D Walkthrough Video & Floor Plans Dubai | Blackwhite Viz",
+    metaDescription:
+      "3D walkthrough video, architectural animation, and 2D/3D floor plans in Dubai — cinematic tours and clear layouts for marketing and sales.",
+    kicker: "06 — Film & Plans",
+    line: "Walkthrough videos and floor plans that bring a project to life — in motion and on the page.",
+    body: "Our 3D walkthrough and architectural animation services are built for developer marketing, sales presentations, and investor decks. We also produce 2D and 3D floor plans that give buyers a clear read on layout and flow — precise, polished, and ready for brochures, portals, and sales galleries.",
     hero: projectSrc("Tower3", "gcam - 1_evening_rev16 copy.webp"),
-    heroAlt: "3D walkthrough — evening tower",
+    heroAlt: "3D walkthrough and floor plan visualization",
     video: "/film/showreel.mp4",
     stills: [
       {
         src: projectSrc("Tower3", "gcam - 1_evening_rev16 copy.webp"),
-        alt: "Tower Three — evening",
+        alt: "Tower Three — evening walkthrough still",
         title: "Tower Three",
         href: "/work/tower-3",
         tile: "full",
@@ -223,64 +282,32 @@ export const servicePages: ServicePage[] = [
         tile: "wide",
       },
       {
-        src: projectSrc("WATER VILLA", "Villa V4 Night_01 copy.webp"),
-        alt: "Water Villa — night",
-        title: "Water Villa",
-        href: "/work/water-villa",
-        tile: "tall",
-      },
-      {
-        src: projectSrc("nshama", "balcony copy.webp"),
-        alt: "Nshama — balcony",
-        title: "Nshama",
-        href: "/work/nshama",
-        tile: "mid",
-      },
-      {
-        src: projectSrc("Fort", "cam - 4.jpg copy.webp"),
-        alt: "Fort — exterior",
-        title: "Fort",
-        href: "/work/fort",
-        tile: "mid",
-      },
-    ],
-  },
-  {
-    slug: "2d-3d-floor-plans",
-    title: "2D & 3D Floor Plans",
-    kicker: "06 — Plans",
-    line: "Precise visualizations that offer clarity and insight.",
-    body: "Clear 2D and 3D floor plans for marketing and sales — layout, flow, and scale made easy to read. Ideal for brochures, portals, and investor packs where understanding the unit comes first.",
-    hero: projectSrc("nshama", "Living Room  copy.webp"),
-    heroAlt: "2D and 3D floor plan visualization context",
-    stills: [
-      {
         src: projectSrc("nshama", "Living Room  copy.webp"),
-        alt: "Nshama — living room",
+        alt: "Nshama — living room floor plan context",
         title: "Nshama",
         href: "/work/nshama",
-        tile: "wide",
+        tile: "tall",
       },
       {
         src: projectSrc("INTERIOR", "v2_2 copy.webp"),
         alt: "Interior — layout study",
         title: "Interior Studies",
         href: "/work/interior",
-        tile: "tall",
+        tile: "mid",
+      },
+      {
+        src: projectSrc("WATER VILLA", "Villa V4 Night_01 copy.webp"),
+        alt: "Water Villa — night",
+        title: "Water Villa",
+        href: "/work/water-villa",
+        tile: "mid",
       },
       {
         src: projectSrc("heretage", "11_p.rev copy.webp"),
         alt: "Heritage — interior",
         title: "Heritage",
         href: "/work/heritage",
-        tile: "mid",
-      },
-      {
-        src: projectSrc("KENYA-VILLA", "n_4 copy.webp"),
-        alt: "Kenya Villa — dusk",
-        title: "Kenya Villa",
-        href: "/work/kenya-villa",
-        tile: "mid",
+        tile: "third",
       },
     ],
   },

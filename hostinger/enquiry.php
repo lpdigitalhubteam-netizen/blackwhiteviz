@@ -27,11 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$provided =
-    $_SERVER['HTTP_X_MAIL_SECRET']
-    ?? (preg_match('/Bearer\s+(.+)/', $_SERVER['HTTP_AUTHORIZATION'] ?? '', $m) ? $m[1] : '');
-
-if ($provided !== $secret) {
+$auth = $_SERVER['HTTP_AUTHORIZATION'] ?? '';
+if ($auth !== 'Bearer ' . $secret) {
     http_response_code(401);
     echo json_encode(['error' => 'Unauthorized']);
     exit;

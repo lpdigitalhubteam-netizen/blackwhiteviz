@@ -2,30 +2,21 @@ export type EnquirySource = "price-guidelines" | "contact";
 
 export type EnquiryPayload = {
   source: EnquirySource;
+  name: string;
   email: string;
-  firstName?: string;
-  name?: string;
-  company?: string;
-  phone?: string;
-  message?: string;
+  company: string;
+  phone: string;
   website?: string;
 };
 
 export function enquirySubject(payload: EnquiryPayload) {
-  const person = payload.firstName ?? payload.name ?? "Unknown";
-  const company = payload.company ? ` — ${payload.company}` : "";
+  const label =
+    payload.source === "price-guidelines" ? "Price Guidelines" : "Contact";
 
-  if (payload.source === "price-guidelines") {
-    return `[Price Guidelines] ${person}${company}`;
-  }
-
-  return `[Contact] ${person}`;
+  return `[${label}] ${payload.name} — ${payload.company}`;
 }
 
 export function enquiryHtml(payload: EnquiryPayload) {
-  const person = payload.firstName ?? payload.name ?? "—";
-  const phone = payload.phone ?? "—";
-
   function escapeHtml(value: string) {
     return value
       .replaceAll("&", "&amp;")
@@ -38,11 +29,10 @@ export function enquiryHtml(payload: EnquiryPayload) {
   const safe = (value: string) => escapeHtml(String(value));
   const rows = [
     ["Source", payload.source],
-    ["Name", person],
+    ["Name", payload.name],
     ["Email", payload.email],
-    ["Company", payload.company ?? "—"],
-    ["Phone", phone],
-    ["Message", payload.message ?? "—"],
+    ["Company", payload.company],
+    ["Phone", payload.phone],
   ];
 
   const tableRows = rows
@@ -63,18 +53,15 @@ export function enquiryHtml(payload: EnquiryPayload) {
 }
 
 export function enquiryText(payload: EnquiryPayload) {
-  const person = payload.firstName ?? payload.name ?? "—";
-  const lines = [
+  return [
     "New enquiry — Blackwhite Viz",
     "",
     `Source: ${payload.source}`,
-    `Name: ${person}`,
+    `Name: ${payload.name}`,
     `Email: ${payload.email}`,
-    `Company: ${payload.company ?? "—"}`,
-    `Phone: ${payload.phone ?? "—"}`,
-    `Message: ${payload.message ?? "—"}`,
-  ];
-  return lines.join("\n");
+    `Company: ${payload.company}`,
+    `Phone: ${payload.phone}`,
+  ].join("\n");
 }
 
 export async function submitEnquiry(payload: EnquiryPayload) {

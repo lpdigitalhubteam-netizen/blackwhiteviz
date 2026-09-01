@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { BlogCard } from "@/components/BlogCard";
 import { Faq } from "@/components/Faq";
@@ -7,7 +8,14 @@ import { Reveal, RevealClip } from "@/components/Reveal";
 import { blogIntro, blogPosts } from "@/lib/blog";
 import { homeFaqs } from "@/lib/faq";
 import { homeAbout, homeSelection } from "@/lib/home";
+import { absoluteTitle, seo } from "@/lib/seo";
+import { servicePages } from "@/lib/services";
 import { site } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: absoluteTitle(seo.home.title),
+  description: seo.home.description,
+};
 
 export default function Home() {
   return (
@@ -90,174 +98,36 @@ export default function Home() {
         </div>
 
         <div className="mt-2 grid grid-cols-2 gap-10 md:mt-6 md:grid-cols-3 md:gap-12">
-          <Link
-            href="/services/3d-architectural-rendering"
-            className="group flex flex-col items-center text-center"
-          >
-            <div className="flex h-14 w-14 items-center justify-center text-foreground/80">
-              <svg
-                width="26"
-                height="26"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M4 20V8l8-4 8 4v12" />
-                <path d="M9 20v-6h6v6" />
-              </svg>
-            </div>
-            <div className="mt-4 font-display text-sm font-semibold tracking-[0.22em] uppercase text-white/85">
-              3D Architectural Rendering
-            </div>
-            <p className="mt-3 text-xs leading-relaxed text-muted">
-              A transformation of blueprints into captivating, photorealistic
-              renders.
-            </p>
-          </Link>
-
-          <Link
-            href="/services/3d-interior-renderings"
-            className="group flex flex-col items-center text-center"
-          >
-            <div className="flex h-14 w-14 items-center justify-center text-foreground/80">
-              <svg
-                width="26"
-                height="26"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M4 20h16" />
-                <path d="M6 20V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v11" />
-                <path d="M9 7V4h6v3" />
-              </svg>
-            </div>
-            <div className="mt-4 font-display text-sm font-semibold tracking-[0.22em] uppercase text-white/85">
-              3D Interior Renderings
-            </div>
-            <p className="mt-3 text-xs leading-relaxed text-muted">
-              A journey through interiors, marked by meticulous detail and
-              elegance.
-            </p>
-          </Link>
-
-          <Link
-            href="/services/interior-design-support"
-            className="group flex flex-col items-center text-center"
-          >
-            <div className="flex h-14 w-14 items-center justify-center text-foreground/80">
-              <svg
-                width="26"
-                height="26"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-6z" />
-              </svg>
-            </div>
-            <div className="mt-4 font-display text-sm font-semibold tracking-[0.22em] uppercase text-white/85">
-              Interior Design Support
-            </div>
-            <p className="mt-3 text-xs leading-relaxed text-muted">
-              Strategic interior design support that bridges creative vision and
-              precise 3D visualization.
-            </p>
-          </Link>
-
-          <Link
-            href="/services/ar-vr"
-            className="group flex flex-col items-center text-center"
-          >
-            <div className="flex h-14 w-14 items-center justify-center text-foreground/80">
-              <svg
-                width="26"
-                height="26"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M4 14V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5" />
-                <path d="M8 18h8" />
-                <path d="M9 11h.01" />
-                <path d="M15 11h.01" />
-              </svg>
-            </div>
-            <div className="mt-4 font-display text-sm font-semibold tracking-[0.22em] uppercase text-white/85">
-              AR/VR
-            </div>
-            <p className="mt-3 text-xs leading-relaxed text-muted">
-              The future of interactive presentations, where reality meets the
-              virtual world.
-            </p>
-          </Link>
-
-          <Link
-            href="/services/3d-walkthrough-videos"
-            className="group flex flex-col items-center text-center"
-          >
-            <div className="flex h-14 w-14 items-center justify-center text-foreground/80">
-              <svg
-                width="26"
-                height="26"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M8 5v14l11-7z" />
-                <path d="M4 7h2" />
-              </svg>
-            </div>
-            <div className="mt-4 font-display text-sm font-semibold tracking-[0.22em] uppercase text-white/85">
-              3D Walk-Through Videos
-            </div>
-            <p className="mt-3 text-xs leading-relaxed text-muted">
-              Cinematic experiences that breathe life into your projects.
-            </p>
-          </Link>
-
-          <Link
-            href="/services/2d-3d-floor-plans"
-            className="group flex flex-col items-center text-center"
-          >
-            <div className="flex h-14 w-14 items-center justify-center text-foreground/80">
-              <svg
-                width="26"
-                height="26"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M4 4h16v16H4z" />
-                <path d="M8 4v16" />
-                <path d="M4 12h16" />
-              </svg>
-            </div>
-            <div className="mt-4 font-display text-sm font-semibold tracking-[0.22em] uppercase text-white/85">
-              2D & 3D Floor Plans
-            </div>
-            <p className="mt-3 text-xs leading-relaxed text-muted">
-              Precise visualizations that offer clarity and insight.
-            </p>
-          </Link>
+          {servicePages.map((service) => (
+            <Link
+              key={service.slug}
+              href={`/services/${service.slug}`}
+              className="group flex flex-col items-center text-center"
+            >
+              <div className="flex h-14 w-14 items-center justify-center text-foreground/80">
+                <svg
+                  width="26"
+                  height="26"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden
+                >
+                  <path d="M4 20V8l8-4 8 4v12" />
+                  <path d="M9 20v-6h6v6" />
+                </svg>
+              </div>
+              <div className="mt-4 font-display text-sm font-semibold tracking-[0.22em] uppercase text-white/85">
+                {service.title}
+              </div>
+              <p className="mt-3 text-xs leading-relaxed text-muted">
+                {service.line}
+              </p>
+            </Link>
+          ))}
         </div>
 
         <div className="mt-10 flex justify-center">

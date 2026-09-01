@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { submitEnquiry } from "@/lib/enquiry";
 import { priceGuidelines } from "@/lib/price-guidelines";
+import { site } from "@/lib/site";
 
 type PriceGuidelineFormProps = {
   onSuccess?: () => void;
@@ -24,7 +25,7 @@ export function PriceGuidelineForm({
     setError("");
 
     const data = new FormData(event.currentTarget);
-    const firstName = String(data.get("firstName") ?? "").trim();
+    const name = String(data.get("name") ?? "").trim();
     const email = String(data.get("email") ?? "").trim();
     const company = String(data.get("company") ?? "").trim();
     const phone = String(data.get("phone") ?? "").trim();
@@ -33,7 +34,7 @@ export function PriceGuidelineForm({
     try {
       await submitEnquiry({
         source: "price-guidelines",
-        firstName,
+        name,
         email,
         company,
         phone,
@@ -42,14 +43,6 @@ export function PriceGuidelineForm({
 
       setStatus("success");
       onSuccess?.();
-
-      const link = document.createElement("a");
-      link.href = priceGuidelines.downloadPath;
-      link.download = priceGuidelines.downloadLabel;
-      link.rel = "noopener";
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
     } catch (err) {
       setStatus("error");
       setError(err instanceof Error ? err.message : "Something went wrong.");
@@ -63,20 +56,15 @@ export function PriceGuidelineForm({
           Thank you
         </p>
         <h2 className="font-display text-xl font-semibold tracking-tight uppercase md:text-2xl">
-          Download started
+          Enquiry sent
         </h2>
         <p className="mt-3 text-sm leading-relaxed text-muted">
-          Your details were sent to our team. If the download did not start, use
-          the link below.
+          Your details were sent to our team at{" "}
+          <a className="text-foreground" href={`mailto:${site.contact.email}`}>
+            {site.contact.email}
+          </a>
+          . We will reply shortly.
         </p>
-        <a
-          href={priceGuidelines.downloadPath}
-          download={priceGuidelines.downloadLabel}
-          className="mt-5 inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-5 py-3 text-[11px] tracking-[0.22em] uppercase transition-colors hover:bg-white/20"
-        >
-          Download again
-          <span aria-hidden>→</span>
-        </a>
       </div>
     );
   }
@@ -105,11 +93,11 @@ export function PriceGuidelineForm({
 
         <label className="block">
           <span className="mb-2 block text-[10px] tracking-[0.22em] text-muted uppercase">
-            First name *
+            Name *
           </span>
           <input
             required
-            name="firstName"
+            name="name"
             type="text"
             disabled={status === "loading"}
             className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm outline-none transition-colors focus:border-white/25 disabled:opacity-60"
