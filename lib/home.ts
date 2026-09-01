@@ -1,9 +1,20 @@
 import { projectSrc } from "@/lib/projects";
 
+const cover = (file: string) => projectSrc("website Cover", file);
+
 export const homeHeroSlides = [
   {
-    src: projectSrc("WATER VILLA", "Villa V1_01 Final copy.webp"),
-    alt: "Water Villa — photoreal coastal villa exterior",
+    src: cover("Website cover copy.webp"),
+    alt: "Blackwhite Viz — website cover still",
+    title: "Blackwhite Viz",
+    kicker: "3D Visualization — Dubai",
+    lines: ["Blackwhite Viz,", "The work, first."],
+    paragraph:
+      "Photoreal stills for architects, developers, and design teams — so a project can be seen, sold, and decided before it is built.",
+  },
+  {
+    src: cover("Villa V4_01 Final copy.webp"),
+    alt: "Water Villa — coastal exterior still",
     title: "Water Villa",
     kicker: "3D Visualization — Dubai",
     lines: ["Water Villa,", "Coastal light, finished calm."],
@@ -11,49 +22,40 @@ export const homeHeroSlides = [
       "A waterfront villa render that shows material, glass, and the exact hour the home should feel finished—before construction begins.",
   },
   {
-    src: projectSrc("TOWER2", "TOWER DAY RENDER-3 copy.webp"),
-    alt: "Tower — day architectural visualization",
-    title: "Tower Day",
+    src: cover("sunrise copy.webp"),
+    alt: "Sunrise architectural visualization",
+    title: "Sunrise",
     kicker: "3D Visualization — Dubai",
-    lines: ["Tower Day,", "Clear form under hard light."],
+    lines: ["Sunrise,", "The hour the facade is remembered."],
     paragraph:
-      "Daytime tower visualization with crisp silhouette and facade detail—built so developers and marketing teams can present scale with confidence.",
+      "Early light, warm glass, and a still that holds the first hour of the day—clear enough for approvals and sales.",
   },
   {
-    src: projectSrc("concept tower", "sp_2_detail_final.webp"),
-    alt: "Concept Tower — detail architectural still",
-    title: "Concept Tower",
+    src: cover("Pool lady remove.jpg copy.webp"),
+    alt: "Pool — residential amenity still",
+    title: "Pool",
     kicker: "3D Visualization — Dubai",
-    lines: ["Concept Tower,", "Detail that sells the plan."],
+    lines: ["Pool,", "Water, shade, and arrival."],
     paragraph:
-      "Close architectural detail with glass, depth, and material intent—so stakeholders can read the design before it is built.",
+      "A pool still that holds amenity and landscape in one frame—clear enough for marketing and design review.",
   },
   {
-    src: projectSrc("KENYA-VILLA", "Villa - Night copy.webp"),
-    alt: "Kenya Villa — night exterior visualization",
-    title: "Kenya Villa",
-    kicker: "3D Visualization — Africa",
-    lines: ["Kenya Villa,", "Night volume, warm arrival."],
+    src: cover("Remove family.jpg copy.webp"),
+    alt: "Residence — exterior still",
+    title: "Residence",
+    kicker: "3D Visualization — Dubai",
+    lines: ["Residence,", "The home, without distraction."],
     paragraph:
-      "A night villa scene built for atmosphere—glow, landscape, and lived-in warmth that helps clients approve the design early.",
+      "A residential still focused on architecture and light—so the design can be approved on its own terms.",
   },
   {
-    src: projectSrc("Fort", "cam - 1.jpg copy.webp"),
-    alt: "Fort — exterior architectural visualization",
-    title: "Fort",
+    src: cover("Storytelling copy.webp"),
+    alt: "Storytelling — interior still",
+    title: "Storytelling",
     kicker: "3D Visualization — Dubai",
-    lines: ["Fort,", "Mass, light, and place."],
+    lines: ["Storytelling,", "Interior light, lived mood."],
     paragraph:
-      "Exterior visualization that carries structure and setting in one frame—clear enough for sales, approvals, and design review.",
-  },
-  {
-    src: projectSrc("nshama", "Lobby copy.webp"),
-    alt: "Nshama — lobby interior visualization",
-    title: "Nshama Lobby",
-    kicker: "3D Visualization — Dubai",
-    lines: ["Nshama Lobby,", "Interior light, arrival mood."],
-    paragraph:
-      "Interior lobby visualization with materials and daylight that feel finished—built as a photoreal still for faster stakeholder decisions.",
+      "An interior still built for atmosphere—so stakeholders can read the space as a finished photograph.",
   },
 ] as const;
 
