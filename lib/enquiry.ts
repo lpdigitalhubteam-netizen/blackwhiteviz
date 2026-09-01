@@ -62,6 +62,21 @@ export function enquiryHtml(payload: EnquiryPayload) {
   `;
 }
 
+export function enquiryText(payload: EnquiryPayload) {
+  const person = payload.firstName ?? payload.name ?? "—";
+  const lines = [
+    "New enquiry — Blackwhite Viz",
+    "",
+    `Source: ${payload.source}`,
+    `Name: ${person}`,
+    `Email: ${payload.email}`,
+    `Company: ${payload.company ?? "—"}`,
+    `Phone: ${payload.phone ?? "—"}`,
+    `Message: ${payload.message ?? "—"}`,
+  ];
+  return lines.join("\n");
+}
+
 export async function submitEnquiry(payload: EnquiryPayload) {
   const response = await fetch("/api/enquiry", {
     method: "POST",
