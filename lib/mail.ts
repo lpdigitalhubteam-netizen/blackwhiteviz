@@ -4,7 +4,7 @@ import type SMTPTransport from "nodemailer/lib/smtp-transport";
 export function getMailConfig() {
   const user = process.env.SMTP_USER?.trim();
   const pass = process.env.SMTP_PASS?.trim();
-  const host = process.env.SMTP_HOST?.trim() ?? "smtp.titan.email";
+  const host = process.env.SMTP_HOST?.trim() ?? "smtp.hostinger.com";
   const port = Number(process.env.SMTP_PORT ?? 465);
 
   if (!user || !pass) {
