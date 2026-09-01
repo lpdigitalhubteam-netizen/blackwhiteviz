@@ -39,6 +39,7 @@ async function sendViaHostingerHttp(
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${secret}`,
+      "X-Mail-Secret": secret,
     },
     body: JSON.stringify({ subject, text, html, replyTo }),
   });
