@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import type SMTPTransport from "nodemailer/lib/smtp-transport";
 
 export function getMailConfig() {
   const user = process.env.SMTP_USER?.trim();
@@ -10,28 +11,67 @@ export function getMailConfig() {
     return null;
   }
 
-  return {
-    user,
-    pass,
-    host,
-    port,
-    secure: port === 465,
-  };
+  return { user, pass, host, port };
 }
 
-export function createMailTransport() {
-  const config = getMailConfig();
-  if (!config) return null;
-
-  return nodemailer.createTransport({
+function transportOptions(
+  config: NonNullable<ReturnType<typeof getMailConfig>>,
+  port: number,
+): SMTPTransport.Options {
+  return {
     host: config.host,
-    port: config.port,
-    secure: config.secure,
+    port,
+    secure: port === 465,
+    requireTLS: port === 587,
     auth: {
       user: config.user,
       pass: config.pass,
     },
-  });
+    tls: {
+      minVersion: "TLSv1.2",
+    },
+    connectionTimeout: 20_000,
+    greetingTimeout: 10_000,
+    socketTimeout: 20_000,
+  };
+}
+
+export async function sendViaSmtp(options: {
+  from: string;
+  to: string[];
+  replyTo: string;
+  subject: string;
+  html: string;
+  text: string;
+}) {
+  const config = getMailConfig();
+  if (!config) {
+    throw new Error("SMTP is not configured.");
+  }
+
+  const ports = config.port === 587 ? [587] : [465, 587];
+  let lastError: unknown;
+
+  for (const port of ports) {
+    const transport = nodemailer.createTransport(transportOptions(config, port));
+    try {
+      await transport.sendMail({
+        from: options.from,
+        to: options.to,
+        replyTo: options.replyTo,
+        subject: options.subject,
+        html: options.html,
+        text: options.text,
+      });
+      transport.close();
+      return;
+    } catch (error) {
+      lastError = error;
+      transport.close();
+    }
+  }
+
+  throw lastError;
 }
 
 export function enquiryFromAddress() {
@@ -46,4 +86,12 @@ export function enquiryToAddresses(fallback: string) {
     .split(",")
     .map((address) => address.trim())
     .filter(Boolean);
+}
+
+export function getHostingerMailUrl() {
+  return process.env.ENQUIRY_MAIL_URL?.trim() ?? null;
+}
+
+export function getHostingerMailSecret() {
+  return process.env.ENQUIRY_MAIL_SECRET?.trim() ?? null;
 }

@@ -6,11 +6,15 @@ import {
   enquiryText,
 } from "@/lib/enquiry";
 import {
-  createMailTransport,
   enquiryFromAddress,
   enquiryToAddresses,
+  getHostingerMailSecret,
+  getHostingerMailUrl,
+  sendViaSmtp,
 } from "@/lib/mail";
 import { site } from "@/lib/site";
+
+export const runtime = "nodejs";
 
 function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -18,6 +22,35 @@ function isValidEmail(value: string) {
 
 function isValidPhone(value: string) {
   return /^[0-9+\-\s()]{6,}$/.test(value);
+}
+
+async function sendViaHostingerHttp(
+  subject: string,
+  text: string,
+  html: string,
+  replyTo: string,
+) {
+  const url = getHostingerMailUrl();
+  const secret = getHostingerMailSecret();
+  if (!url || !secret) return false;
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${secret}`,
+    },
+    body: JSON.stringify({ subject, text, html, replyTo }),
+  });
+
+  if (!response.ok) {
+    const body = (await response.json().catch(() => null)) as {
+      error?: string;
+    } | null;
+    throw new Error(body?.error ?? "Hostinger mail relay failed.");
+  }
+
+  return true;
 }
 
 export async function POST(request: Request) {
@@ -64,14 +97,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Message is required." }, { status: 400 });
   }
 
-  const transport = createMailTransport();
-  if (!transport) {
-    return NextResponse.json(
-      { error: "Email delivery is not configured yet." },
-      { status: 503 },
-    );
-  }
-
   const normalized: EnquiryPayload = {
     ...payload,
     email,
@@ -88,8 +113,23 @@ export async function POST(request: Request) {
   const to = enquiryToAddresses(site.contact.email);
   const from = enquiryFromAddress();
 
+  const mailUrl = getHostingerMailUrl();
+  const mailSecret = getHostingerMailSecret();
+
   try {
-    await transport.sendMail({
+    if (mailUrl && mailSecret) {
+      await sendViaHostingerHttp(subject, text, html, email);
+      return NextResponse.json({ ok: true });
+    }
+
+    if (!process.env.SMTP_USER?.trim() || !process.env.SMTP_PASS?.trim()) {
+      return NextResponse.json(
+        { error: "Email delivery is not configured yet." },
+        { status: 503 },
+      );
+    }
+
+    await sendViaSmtp({
       from,
       to,
       replyTo: email,
@@ -98,7 +138,7 @@ export async function POST(request: Request) {
       text,
     });
   } catch (error) {
-    console.error("SMTP error:", error);
+    console.error("Mail error:", error);
     return NextResponse.json(
       { error: "Could not send enquiry email." },
       { status: 502 },
