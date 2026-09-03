@@ -1,7 +1,9 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  reactCompiler: true,
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Hostinger's git builder has old glibc — skip native image optimizer (sharp).
+  images: {
+    unoptimized: true,
+  },
   async redirects() {
     return [
       {
