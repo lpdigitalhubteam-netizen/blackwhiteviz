@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap");
 
 @font-face {
   font-family: "Acumin Variable Concept";
@@ -14,6 +15,7 @@
   --muted: #8a8a84;
   --line: #1c1c1c;
   --panel: #101010;
+  --font-geist-sans: "Geist", system-ui, sans-serif;
   --font-acumin: "Acumin Variable Concept", var(--font-geist-sans), system-ui,
     sans-serif;
 }
