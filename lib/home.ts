@@ -160,7 +160,7 @@ export const homeSelection = [
   {
     title: "Water Villa",
     href: "/work/water-villa",
-    src: projectSrc("WATER VILLA", "Villa V1_01 Final copy.webp"),
+    src: projectSrc("WATER VILLA", "Villa V4_01 Final copy.webp"),
     alt: "Water Villa — coastal exterior",
     tile: "wide" as const,
   },
@@ -181,8 +181,8 @@ export const homeSelection = [
   {
     title: "Nshama",
     href: "/work/nshama",
-    src: projectSrc("nshama", "Lobby copy.webp"),
-    alt: "Nshama — lobby",
+    src: projectSrc("nshama", "balcony copy.webp"),
+    alt: "Nshama — balcony",
     tile: "third" as const,
   },
   {

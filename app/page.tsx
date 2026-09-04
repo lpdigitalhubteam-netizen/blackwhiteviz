@@ -51,7 +51,7 @@ export default function Home() {
           <Collage>
             <Place
               alt="Water Villa — coastal exterior"
-              src="/project/WATER VILLA/Villa V1_01 Final copy.webp"
+              src="/project/WATER VILLA/Villa V4_01 Final copy.webp"
               ratio="16/9"
               tile="wide"
               href="/work/water-villa"
@@ -66,8 +66,8 @@ export default function Home() {
               hover="Tower Two"
             />
             <Place
-              alt="Nshama — lobby"
-              src="/project/nshama/Lobby copy.webp"
+              alt="Nshama — balcony"
+              src="/project/nshama/balcony copy.webp"
               ratio="16/9"
               tile="mid"
               href="/work/nshama"
