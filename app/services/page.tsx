@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Place } from "@/components/Place";
 import { Reveal } from "@/components/Reveal";
+import { ServiceTitle } from "@/components/ServiceTitle";
 import { absoluteTitle, seo } from "@/lib/seo";
 import { servicePages } from "@/lib/services";
 
@@ -40,7 +41,7 @@ export default function ServicesPage() {
                 ratio="16/9"
                 index={String(i + 1).padStart(2, "0")}
                 href={`/services/${service.slug}`}
-                hover={service.title}
+                hover={service.title.replace(" / ", "\n/ ")}
               />
             </div>
             <div
@@ -55,7 +56,7 @@ export default function ServicesPage() {
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <h2 className="font-display mb-4 text-3xl font-semibold tracking-tight uppercase md:text-4xl">
-                  {service.title}
+                  <ServiceTitle title={service.title} />
                 </h2>
                 <p className="mb-6 max-w-sm text-sm leading-relaxed text-muted">
                   {service.line}

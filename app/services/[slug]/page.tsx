@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Collage, Place } from "@/components/Place";
 import { HeroScrim } from "@/components/HeroScrim";
 import { Reveal, RevealClip } from "@/components/Reveal";
+import { ServiceTitle } from "@/components/ServiceTitle";
 import {
   getAdjacentService,
   getService,
@@ -51,7 +52,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             {service.kicker}
           </p>
           <h1 className="font-display text-4xl font-semibold tracking-tight uppercase md:text-6xl">
-            {service.title}
+            <ServiceTitle title={service.title} />
           </h1>
         </div>
       </section>
@@ -109,7 +110,7 @@ export default async function ServiceDetailPage({ params }: Props) {
               Previous
             </span>
             <span className="font-display text-lg font-semibold tracking-tight uppercase md:text-2xl">
-              {prev.title}
+              <ServiceTitle title={prev.title} />
             </span>
           </Link>
         ) : (
@@ -124,7 +125,7 @@ export default async function ServiceDetailPage({ params }: Props) {
               Next
             </span>
             <span className="font-display text-lg font-semibold tracking-tight uppercase md:text-2xl">
-              {next.title}
+              <ServiceTitle title={next.title} />
             </span>
           </Link>
         ) : null}

@@ -132,7 +132,7 @@ export default function AboutPage() {
             <p className="mb-4 inline-flex rounded-sm bg-black px-3.5 py-1.5 text-[10px] tracking-[0.22em] text-white uppercase">
               About us
             </p>
-            <h1 className="font-serif text-[2.35rem] leading-[1.08] font-normal tracking-tight text-white italic sm:text-5xl md:text-6xl lg:text-[4.25rem]">
+            <h1 className="font-display text-[2.35rem] leading-[1.08] font-normal tracking-tight text-white italic sm:text-5xl md:text-6xl lg:text-[4.25rem]">
               Architectural Visualization
               <br />
               Company, UAE

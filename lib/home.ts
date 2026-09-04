@@ -108,8 +108,8 @@ export const homeServices = [
   },
   {
     slug: "animations",
-    title: "Walkthroughs & Floor Plans",
-    line: "Cinematic walkthroughs when a still is not enough — plus 2D and 3D floor plans for clear layout and flow.",
+    title: "3D Walkthrough Videos / 2D Floor Plans",
+    line: "Cinematic walkthroughs when a still is not enough — plus 2D floor plans for clear layout and flow.",
     href: "/services/3d-walkthrough-videos",
     stills: [
       {

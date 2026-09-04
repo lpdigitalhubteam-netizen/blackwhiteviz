@@ -130,7 +130,7 @@ export function Place({
 
       {hover ? (
         <div className="absolute right-4 bottom-4 translate-y-2 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 md:right-6 md:bottom-6">
-          <span className="font-display text-xl font-semibold tracking-tight text-white uppercase drop-shadow-[0_2px_18px_rgba(0,0,0,0.65)] md:text-2xl lg:text-3xl">
+          <span className="font-display whitespace-pre-line text-xl font-semibold tracking-tight text-white uppercase drop-shadow-[0_2px_18px_rgba(0,0,0,0.65)] md:text-2xl lg:text-3xl">
             {hover}
           </span>
         </div>

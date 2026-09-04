@@ -5,6 +5,7 @@ import { Faq } from "@/components/Faq";
 import { HomeHero } from "@/components/HomeHero";
 import { Collage, Place } from "@/components/Place";
 import { Reveal, RevealClip } from "@/components/Reveal";
+import { ServiceIcon } from "@/components/ServiceIcon";
 import { blogIntro, blogPosts } from "@/lib/blog";
 import { homeFaqs } from "@/lib/faq";
 import { homeAbout, homeSelection } from "@/lib/home";
@@ -43,11 +44,8 @@ export default function Home() {
         </div>
 
         <div className="mt-14">
-          <p className="mb-4 text-[10px] tracking-[0.28em] text-muted uppercase">
-            Featured projects
-          </p>
           <h3 className="font-display mb-6 text-3xl font-semibold tracking-tight uppercase md:text-4xl">
-            Our Works
+            Featured Projects
           </h3>
 
           <Collage>
@@ -97,34 +95,24 @@ export default function Home() {
           </h3>
         </div>
 
-        <div className="mt-2 grid grid-cols-2 gap-10 md:mt-6 md:grid-cols-3 md:gap-12">
+        <div className="mt-2 grid grid-cols-2 items-stretch gap-10 md:mt-6 md:grid-cols-3 md:gap-12">
           {servicePages.map((service) => (
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className="group flex flex-col items-center text-center"
+              className="group flex h-full flex-col items-center text-center"
             >
               <div className="flex h-14 w-14 items-center justify-center text-foreground/80">
-                <svg
-                  width="26"
-                  height="26"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden
-                >
-                  <path d="M4 20V8l8-4 8 4v12" />
-                  <path d="M9 20v-6h6v6" />
-                </svg>
+                <ServiceIcon slug={service.slug} />
               </div>
-              <div className="mt-4 font-display text-sm font-semibold tracking-[0.22em] uppercase text-white/85">
-                {service.title}
+              <div className="mt-4 flex min-h-[2.7em] items-start justify-center font-display text-sm font-semibold leading-snug tracking-[0.14em] uppercase text-white/85">
+                <span>
+                  {service.cardTitle[0]}
+                  <span className="block">{service.cardTitle[1]}</span>
+                </span>
               </div>
-              <p className="mt-3 text-xs leading-relaxed text-muted">
-                {service.line}
+              <p className="mt-3 min-h-[2.5em] w-full max-w-[32ch] text-xs leading-relaxed text-muted">
+                {service.cardLine}
               </p>
             </Link>
           ))}
