@@ -10,7 +10,7 @@ export const site = {
     height: 2515,
     version: "1",
   },
-  tagline: "Design. Photoreal visuals. Impact that lasts.",
+  tagline: "3D visualisation solutions in Dubai and beyond.",
   statement: [
     "We turn unbuilt space",
     "into images you can",

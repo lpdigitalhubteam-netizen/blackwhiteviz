@@ -83,10 +83,23 @@ export const homeHeroCopy = {
 
 export const homeAbout = {
   kicker: "About us",
-  title: "Blackwhite Viz by Latheif Productions",
+  title: "We are BLACKWHITE Viz",
   lead:
-    "Blackwhite Viz is a Dubai-based 3D rendering company producing photorealistic architectural visualization for villas, towers, malls, and masterplans.",
-  body: "We help architects, developers, and design teams present a project with clarity and impact — before a single wall is built.",
+    "We specialize in delivering 3D visualisation solutions that transform ideas into striking visual experiences. As one of the leading 3D visualisation companies, we combine creativity and precision to bring your concepts to life through advanced 3D rendering services in Dubai and beyond.",
+  highlights: [
+    {
+      label: "Exterior 3D Modeling and Rendering",
+      href: "/services/3d-architectural-rendering",
+    },
+    {
+      label: "Interior Design",
+      href: "/services/interior-design-support",
+    },
+    {
+      label: "Landscape Design",
+      href: "/services/landscape-rendering",
+    },
+  ],
 };
 
 export const homeServices = [
@@ -158,38 +171,38 @@ export const homeServices = [
 
 export const homeSelection = [
   {
-    title: "Water Villa",
-    href: "/work/water-villa",
-    src: projectSrc("WATER VILLA", "Villa V4_01 Final copy.webp"),
-    alt: "Water Villa — coastal exterior",
-    tile: "wide" as const,
-  },
-  {
-    title: "Tower Two",
-    href: "/work/tower-2",
-    src: projectSrc("TOWER2", "TOWER DAY RENDER-3 copy.webp"),
-    alt: "Tower Two — day render",
-    tile: "tall" as const,
-  },
-  {
-    title: "Kenya Villa",
-    href: "/work/kenya-villa",
-    src: projectSrc("KENYA-VILLA", "Villa - Night copy.webp"),
-    alt: "Kenya Villa — night",
-    tile: "third" as const,
-  },
-  {
-    title: "Nshama",
-    href: "/work/nshama",
-    src: projectSrc("nshama", "balcony copy.webp"),
-    alt: "Nshama — balcony",
-    tile: "third" as const,
-  },
-  {
     title: "Fort",
     href: "/work/fort",
     src: projectSrc("Fort", "cam - 1.jpg copy.webp"),
     alt: "Fort — exterior",
+    tile: "wide" as const,
+  },
+  {
+    title: "Tower Three",
+    href: "/work/tower-3",
+    src: projectSrc("Tower3", "cam - 012_ev_final copy.webp"),
+    alt: "Tower Three — evening camera 012",
+    tile: "tall" as const,
+  },
+  {
+    title: "Heritage",
+    href: "/work/heritage",
+    src: projectSrc("heretage", "Storytelling copy.webp"),
+    alt: "Heritage — storytelling interior",
+    tile: "third" as const,
+  },
+  {
+    title: "Interior Studies",
+    href: "/work/interior",
+    src: projectSrc("INTERIOR", "v2_2 copy.webp"),
+    alt: "Interior — variant v2",
+    tile: "third" as const,
+  },
+  {
+    title: "Concept Tower",
+    href: "/work/concept-tower",
+    src: projectSrc("concept tower", "sp_2_detail_final.webp"),
+    alt: "Concept Tower — detail still",
     tile: "third" as const,
   },
 ] as const;

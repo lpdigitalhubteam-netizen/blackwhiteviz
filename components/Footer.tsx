@@ -71,10 +71,12 @@ export function Footer() {
             <p className="mt-2 text-[11px] tracking-[0.22em] text-muted uppercase">
               By {site.parent}
             </p>
-            <p className="mt-5 max-w-md text-sm leading-relaxed text-muted">
-              {site.tagline} A multinational visualization studio serving
-              architects, developers, and designers across the Gulf, Africa, and
-              South Asia.
+            <p className="mt-5 max-w-md text-justify text-sm leading-relaxed text-muted">
+              We specialize in delivering 3D visualisation solutions that
+              transform ideas into striking visual experiences. As one of the
+              leading 3D visualisation companies, we combine creativity and
+              precision to bring your concepts to life through advanced 3D
+              rendering services in Dubai and beyond.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-2">

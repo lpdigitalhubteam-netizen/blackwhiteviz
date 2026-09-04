@@ -4,14 +4,13 @@ import { BlogCard } from "@/components/BlogCard";
 import { Faq } from "@/components/Faq";
 import { HomeHero } from "@/components/HomeHero";
 import { Collage, Place } from "@/components/Place";
-import { Reveal, RevealClip } from "@/components/Reveal";
+import { Reveal } from "@/components/Reveal";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { blogIntro, blogPosts } from "@/lib/blog";
 import { homeFaqs } from "@/lib/faq";
 import { homeAbout, homeSelection } from "@/lib/home";
 import { absoluteTitle, seo } from "@/lib/seo";
 import { servicePages } from "@/lib/services";
-import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: absoluteTitle(seo.home.title),
@@ -23,27 +22,32 @@ export default function Home() {
     <main>
       <HomeHero />
 
-      <section id="studio" className="px-5 py-20 md:px-8 md:py-28">
-        <h2 className="font-display mb-6 text-2xl font-semibold tracking-tight uppercase md:text-3xl lg:text-4xl">
-          {homeAbout.kicker}
-        </h2>
-        <div className="grid gap-10 md:grid-cols-12 md:gap-8">
+      <section id="studio" className="px-5 pt-12 pb-8 md:px-8 md:pt-16 md:pb-10">
+        <div className="grid items-start gap-6 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-5">
-            <h3 className="font-display text-2xl leading-[1.08] font-semibold tracking-tight uppercase md:text-3xl">
-              <RevealClip>{homeAbout.title}</RevealClip>
-            </h3>
+            <h2 className="font-display text-4xl font-semibold tracking-tight uppercase md:text-6xl">
+              {homeAbout.kicker}
+            </h2>
           </div>
           <Reveal className="md:col-span-6 md:col-start-7">
-            <p className="text-base leading-relaxed text-foreground/90">
+            <p className="text-justify text-sm leading-relaxed text-foreground/90 md:text-base">
               {homeAbout.lead}
             </p>
-            <p className="mt-5 text-sm leading-relaxed text-muted">
-              {homeAbout.body}
-            </p>
+            <Link
+              href="/about"
+              className="mt-5 inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-5 py-3 text-[11px] tracking-[0.22em] uppercase transition-colors hover:bg-white/20"
+            >
+              Who we are
+              <span aria-hidden className="text-sm leading-none">
+                →
+              </span>
+            </Link>
           </Reveal>
         </div>
+      </section>
 
-        <div className="mt-14">
+      <section className="px-5 pt-6 pb-20 md:px-8 md:pt-8 md:pb-28">
+        <div>
           <h3 className="font-display mb-6 text-3xl font-semibold tracking-tight uppercase md:text-4xl">
             Featured Projects
           </h3>
@@ -87,31 +91,28 @@ export default function Home() {
 
       <section className="px-5 pb-20 md:px-8 md:pb-28">
         <div className="mb-12 flex flex-col items-center justify-center text-center">
-          <p className="mb-4 text-[10px] tracking-[0.28em] text-muted uppercase">
-            Our services
-          </p>
           <h3 className="font-display text-3xl font-semibold tracking-tight uppercase md:text-4xl">
-            <RevealClip>What we make</RevealClip>
+            Our Services
           </h3>
         </div>
 
-        <div className="mt-2 grid grid-cols-2 items-stretch gap-10 md:mt-6 md:grid-cols-3 md:gap-12">
+        <div className="mx-auto mt-2 grid max-w-6xl grid-cols-2 items-stretch gap-10 md:mt-6 md:grid-cols-3 md:gap-14">
           {servicePages.map((service) => (
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className="group flex h-full flex-col items-center text-center"
+              className="group flex h-full flex-col items-center rounded-2xl border border-white/15 bg-white/[0.04] px-5 py-8 text-center backdrop-blur-sm transition-colors hover:border-white/25 hover:bg-white/[0.08]"
             >
               <div className="flex h-14 w-14 items-center justify-center text-foreground/80">
                 <ServiceIcon slug={service.slug} />
               </div>
-              <div className="mt-4 flex min-h-[2.7em] items-start justify-center font-display text-sm font-semibold leading-snug tracking-[0.14em] uppercase text-white/85">
+              <div className="mt-4 flex min-h-[2.7em] w-full items-start justify-center font-display text-sm font-semibold leading-snug tracking-[0.14em] uppercase text-white/85">
                 <span>
                   {service.cardTitle[0]}
                   <span className="block">{service.cardTitle[1]}</span>
                 </span>
               </div>
-              <p className="mt-3 min-h-[2.5em] w-full max-w-[32ch] text-xs leading-relaxed text-muted">
+              <p className="mt-3 min-h-[2.5em] w-full text-xs leading-relaxed text-muted">
                 {service.cardLine}
               </p>
             </Link>
@@ -123,7 +124,7 @@ export default function Home() {
             href="/services"
             className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-5 py-3 text-[11px] tracking-[0.22em] uppercase transition-colors hover:bg-white/20"
           >
-            All services
+            Learn more
             <span aria-hidden className="text-sm leading-none">
               →
             </span>
@@ -133,19 +134,14 @@ export default function Home() {
 
       <section className="px-5 pb-20 md:px-8 md:pb-28">
         <div className="mb-8 flex items-end justify-between">
-          <div>
-            <p className="mb-4 text-[10px] tracking-[0.28em] text-muted uppercase">
-              Selected projects
-            </p>
-            <h2 className="font-display text-4xl font-semibold tracking-tight uppercase md:text-6xl">
-              Projects
-            </h2>
-          </div>
+          <h2 className="font-display text-4xl font-semibold tracking-tight uppercase md:text-6xl">
+            Our Works
+          </h2>
           <Link
             href="/work"
             className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-5 py-3 text-[11px] tracking-[0.22em] uppercase transition-colors hover:bg-white/20"
           >
-            View more
+            Browse all projects
             <span aria-hidden className="text-sm leading-none">
               →
             </span>
@@ -210,46 +206,6 @@ export default function Home() {
         <div className="mx-auto mt-10 max-w-3xl">
           <Faq items={homeFaqs} />
         </div>
-      </section>
-
-      <section className="px-5 pb-24 md:px-8 md:pb-32">
-        <Reveal>
-          <div className="flex flex-col justify-between gap-8 border-t border-line pt-10 md:flex-row md:items-end">
-            <div>
-              <p className="mb-4 text-[10px] tracking-[0.28em] text-muted uppercase">
-                Let&apos;s collaborate
-              </p>
-              <p className="font-display max-w-xl text-3xl leading-tight font-semibold tracking-tight uppercase md:text-5xl">
-                A new project.
-                <br />
-                Send the drawings.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 text-[11px] tracking-[0.18em] uppercase">
-              <Link
-                href="/contact"
-                className="transition-opacity hover:opacity-60"
-              >
-                Contact the studio
-              </Link>
-              <a
-                href={`mailto:${site.contact.email}`}
-                className="text-muted transition-opacity hover:text-foreground hover:opacity-100"
-              >
-                {site.contact.email}
-              </a>
-              {site.contact.phones.map((phone) => (
-                <a
-                  key={phone.href}
-                  href={phone.href}
-                  className="text-muted transition-opacity hover:text-foreground hover:opacity-100"
-                >
-                  {phone.number}
-                </a>
-              ))}
-            </div>
-          </div>
-        </Reveal>
       </section>
     </main>
   );

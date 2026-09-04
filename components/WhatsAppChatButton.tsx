@@ -20,7 +20,7 @@ export function WhatsAppChatButton() {
       onClick={() => {
         window.open(href, "_blank", "noopener,noreferrer");
       }}
-      className="group fixed right-5 bottom-5 z-[65] flex h-12 cursor-pointer items-center overflow-hidden rounded-full bg-[#25D366] text-white shadow-lg"
+      className="group fixed right-5 bottom-5 z-[80] flex h-12 cursor-pointer items-center overflow-hidden rounded-full bg-[#25D366] text-white shadow-lg"
     >
       <span className="max-w-0 overflow-hidden whitespace-nowrap text-[13px] font-semibold transition-[max-width] duration-300 ease-out group-hover:max-w-[13rem]">
         <span className="inline-block translate-x-4 pr-1 pl-4 opacity-0 transition duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100">
