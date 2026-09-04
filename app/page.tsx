@@ -25,7 +25,7 @@ export default function Home() {
       <section id="studio" className="px-5 pt-12 pb-8 md:px-8 md:pt-16 md:pb-10">
         <div className="grid items-start gap-6 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-5">
-            <h2 className="font-display text-4xl font-semibold tracking-tight uppercase md:text-6xl">
+            <h2 className="font-display text-3xl font-semibold tracking-tight uppercase md:text-6xl">
               {homeAbout.kicker}
             </h2>
           </div>
@@ -48,7 +48,7 @@ export default function Home() {
 
       <section className="px-5 pt-6 pb-20 md:px-8 md:pt-8 md:pb-28">
         <div>
-          <h3 className="font-display mb-6 text-3xl font-semibold tracking-tight uppercase md:text-4xl">
+          <h3 className="font-display mb-6 text-2xl font-semibold tracking-tight uppercase md:text-4xl">
             Featured Projects
           </h3>
 
@@ -96,17 +96,17 @@ export default function Home() {
           </h3>
         </div>
 
-        <div className="mx-auto mt-2 grid max-w-6xl grid-cols-2 items-stretch gap-10 md:mt-6 md:grid-cols-3 md:gap-14">
+        <div className="mx-auto mt-2 grid max-w-6xl grid-cols-1 items-stretch gap-5 sm:grid-cols-2 sm:gap-8 md:mt-6 lg:grid-cols-3 lg:gap-14">
           {servicePages.map((service) => (
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className="group flex h-full flex-col items-center rounded-2xl border border-white/15 bg-white/[0.04] px-5 py-8 text-center backdrop-blur-sm transition-colors hover:border-white/25 hover:bg-white/[0.08]"
+              className="group flex h-full flex-col items-center rounded-2xl border border-white/15 bg-white/[0.04] px-4 py-6 text-center backdrop-blur-sm transition-colors hover:border-white/25 hover:bg-white/[0.08] md:px-5 md:py-8"
             >
               <div className="flex h-14 w-14 items-center justify-center text-foreground/80">
                 <ServiceIcon slug={service.slug} />
               </div>
-              <div className="mt-4 flex min-h-[2.7em] w-full items-start justify-center font-display text-sm font-semibold leading-snug tracking-[0.14em] uppercase text-white/85">
+              <div className="mt-4 flex min-h-[2.7em] w-full items-start justify-center font-display text-xs font-semibold leading-snug tracking-[0.08em] uppercase text-white/85 sm:text-sm sm:tracking-[0.14em]">
                 <span>
                   {service.cardTitle[0]}
                   <span className="block">{service.cardTitle[1]}</span>
@@ -133,8 +133,8 @@ export default function Home() {
       </section>
 
       <section className="px-5 pb-20 md:px-8 md:pb-28">
-        <div className="mb-8 flex items-end justify-between">
-          <h2 className="font-display text-4xl font-semibold tracking-tight uppercase md:text-6xl">
+        <div className="mb-8 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
+          <h2 className="font-display text-3xl font-semibold tracking-tight uppercase md:text-6xl">
             Our Works
           </h2>
           <Link
@@ -167,7 +167,7 @@ export default function Home() {
           <p className="mb-3 text-[10px] tracking-[0.28em] text-muted uppercase">
             {blogIntro.kicker}
           </p>
-          <h2 className="font-display text-4xl font-semibold tracking-tight uppercase md:text-6xl">
+          <h2 className="font-display text-3xl font-semibold tracking-tight uppercase md:text-6xl">
             {blogIntro.title}
           </h2>
           <p className="mt-4 text-sm italic text-foreground/70 md:text-base">
@@ -178,7 +178,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-5">
+        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-5 md:grid-cols-4">
           {blogPosts.slice(0, 4).map((post) => (
             <BlogCard key={post.slug} post={post} />
           ))}
@@ -199,7 +199,7 @@ export default function Home() {
 
       <section className="px-5 pb-20 md:px-8 md:pb-28">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-4xl font-semibold tracking-tight uppercase md:text-5xl">
+          <h2 className="font-display text-3xl font-semibold tracking-tight uppercase md:text-5xl">
             FAQ&apos;s
           </h2>
         </div>

@@ -67,7 +67,7 @@ export function PriceGuidelineSlideIn() {
         <motion.aside
           key="price-guideline-slide-in"
           aria-labelledby="price-guideline-slide-title"
-          className="pointer-events-auto hide-scrollbar fixed right-12 bottom-24 z-[70] w-full max-w-[22rem] max-h-[calc(100dvh-8.5rem)] overflow-y-auto rounded-3xl border border-line bg-panel/95 p-6 shadow-2xl backdrop-blur-md sm:max-w-sm sm:p-7 md:max-w-md md:p-8"
+          className="pointer-events-auto hide-scrollbar fixed inset-x-4 bottom-24 z-[70] mx-auto w-auto max-w-[22rem] max-h-[calc(100dvh-8.5rem)] overflow-y-auto rounded-3xl border border-line bg-panel/95 p-5 shadow-2xl backdrop-blur-md sm:inset-x-auto sm:right-5 sm:left-auto sm:mx-0 sm:max-w-sm sm:p-7 md:max-w-md md:p-8"
           initial={{ x: "108%", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: "108%", opacity: 0 }}

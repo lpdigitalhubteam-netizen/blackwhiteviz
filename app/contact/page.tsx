@@ -15,7 +15,7 @@ export default function ContactPage() {
   return (
     <main>
       <div className="grid md:grid-cols-2">
-        <div className="flex flex-col justify-center px-5 pt-28 pb-12 md:min-h-[85svh] md:px-8 md:pt-24 md:pb-12">
+        <div className="flex flex-col justify-center px-5 pt-28 pb-24 md:min-h-[85svh] md:px-8 md:pt-24 md:pb-12">
           <p className="mb-3 text-[10px] tracking-[0.28em] text-muted uppercase">
             06 — Contact
           </p>

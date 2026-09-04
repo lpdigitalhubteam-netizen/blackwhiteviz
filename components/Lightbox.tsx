@@ -177,7 +177,7 @@ export function LightboxProvider({ children }: { children: React.ReactNode }) {
               key={item.src}
               src={mediaSrc(item.src)}
               alt={item.alt}
-              className="relative z-[81] max-h-[100svh] max-w-[100vw] object-contain"
+              className="relative z-[81] max-h-[78svh] max-w-[calc(100vw-1.5rem)] object-contain md:max-h-[88svh] md:max-w-[90vw]"
               onClick={(event) => event.stopPropagation()}
               draggable={false}
             />

@@ -45,11 +45,11 @@ export default async function BlogPostPage({ params }: Props) {
               "linear-gradient(to top, rgba(7,7,7,0.95) 0%, rgba(7,7,7,0.35) 45%, rgba(7,7,7,0.15) 100%)",
           }}
         />
-        <div className="absolute right-0 bottom-0 left-0 z-[1] px-5 pb-8 md:px-8 md:pb-10">
+        <div className="absolute right-0 bottom-0 left-0 z-[1] px-5 pb-12 md:px-8 md:pb-10">
           <p className="mb-3 text-[10px] tracking-[0.28em] text-muted uppercase">
             Blog
           </p>
-          <h1 className="font-display max-w-4xl text-3xl font-semibold tracking-tight uppercase md:text-5xl">
+          <h1 className="font-display max-w-4xl text-[1.65rem] font-semibold tracking-tight uppercase sm:text-3xl md:text-5xl">
             {post.title}
           </h1>
           <p className="mt-4 text-[10px] tracking-[0.22em] text-muted uppercase">

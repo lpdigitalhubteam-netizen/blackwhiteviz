@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const pillars = [
   {
     title: "Clear storytelling",
-    body: "We build photoreal visuals that sell the project—accurate materials, believable light, and frames that communicate design intent without noise.",
+    body: "We build photoreal visuals that sell the project with accurate materials, believable light, and carefully composed frames that clearly communicate the design intent without extra noise at all.",
     icon: (
       <svg
         width="28"
@@ -37,7 +37,7 @@ const pillars = [
   },
   {
     title: "Client-focused delivery",
-    body: "From concept launches to sales decks and marketing sets, we tailor interiors, exteriors, landscapes, and animation to how your team needs to decide and present.",
+    body: "From concept launches to sales decks and marketing sets, we tailor interiors, exteriors, landscapes, and animation so your team can decide, present, and move every project forward with ease.",
     icon: (
       <svg
         width="28"
@@ -59,7 +59,7 @@ const pillars = [
   },
   {
     title: "Precision and detail",
-    body: "Every pass is finished with care—glass, stone, landscape, and atmosphere—so stakeholders can trust what they see before construction begins.",
+    body: "Every render pass is finished with care across glass, stone, landscape, and atmosphere, so stakeholders can fully trust what they see long before any construction work begins on site at all.",
     icon: (
       <svg
         width="28"
@@ -80,7 +80,7 @@ const pillars = [
   },
   {
     title: "Results that travel",
-    body: "As part of Latheif Productions, we work across UAE, Africa, Sri Lanka, and India—formatting visuals for marketing, sales, and approvals worldwide.",
+    body: "As part of Latheif Productions, we work across the UAE, Africa, Sri Lanka, and India, formatting our visuals for marketing, sales, and client approvals around the world for every client brief.",
     icon: (
       <svg
         width="28"
@@ -127,12 +127,9 @@ export default function AboutPage() {
           aria-hidden
           className="absolute inset-0 bg-black/45"
         />
-        <div className="absolute inset-0 z-[2] flex items-center px-5 md:items-end md:px-10 md:pb-16 lg:px-14 lg:pb-20">
+        <div className="absolute inset-0 z-[2] flex items-end px-5 pb-10 md:px-10 md:pb-16 lg:px-14 lg:pb-20">
           <div className="max-w-5xl">
-            <p className="mb-4 inline-flex rounded-sm bg-black px-3.5 py-1.5 text-[10px] tracking-[0.22em] text-white uppercase">
-              About us
-            </p>
-            <h1 className="font-display text-[2.35rem] leading-[1.08] font-normal tracking-tight text-white italic sm:text-5xl md:text-6xl lg:text-[4.25rem]">
+            <h1 className="font-display text-[1.85rem] leading-[1.12] font-semibold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[4.25rem]">
               Architectural Visualization
               <br />
               Company, UAE
@@ -151,10 +148,10 @@ export default function AboutPage() {
             <p className="mt-3 text-[11px] tracking-[0.22em] text-muted uppercase">
               Powered by {site.parent}
             </p>
-            <p className="mt-7 max-w-xl text-sm leading-[1.85] text-muted md:text-[15px]">
+            <p className="mt-7 max-w-xl text-justify text-sm leading-[1.85] text-muted md:text-[15px]">
               {seo.about.intro} Working with clients across{" "}
               {site.regions.join(", ")}, we support developers, architects, and
-              brands with photoreal stills, animations, and aerials — whether you
+              brands with photoreal stills, animations, and aerials, whether you
               are planning a concept launch, putting together a sales deck, or
               creating a complete set of marketing assets.
             </p>
@@ -174,16 +171,14 @@ export default function AboutPage() {
       </section>
 
       {/* Pillars */}
-      <section className="relative z-20 bg-background px-5 py-20 md:px-8 md:py-28">
-        <Reveal className="mx-auto mb-14 max-w-3xl text-center md:mb-16">
-          <h2 className="font-display text-3xl font-semibold tracking-tight uppercase md:text-5xl">
-            Building spaces
-            <br />
-            before they exist
+      <section className="relative z-20 bg-background px-5 py-20 md:px-8 md:py-28 lg:px-12">
+        <Reveal className="mb-14 text-center md:mb-16">
+          <h2 className="font-display text-2xl font-semibold tracking-tight uppercase sm:text-3xl md:text-4xl lg:text-5xl lg:whitespace-nowrap">
+            Building spaces before they exist
           </h2>
         </Reveal>
 
-        <div className="mx-auto grid max-w-6xl gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        <div className="mx-auto grid w-full max-w-[90rem] gap-12 sm:grid-cols-2 sm:gap-x-14 sm:gap-y-14 lg:grid-cols-4 lg:gap-x-16">
           {pillars.map((pillar, i) => (
             <Reveal key={pillar.title} delay={i * 0.06} className="text-center">
               <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center text-foreground/80">
@@ -192,7 +187,7 @@ export default function AboutPage() {
               <h3 className="font-display text-sm font-semibold tracking-[0.14em] uppercase">
                 {pillar.title}
               </h3>
-              <p className="mt-3 text-xs leading-relaxed text-muted md:text-sm">
+              <p className="mt-3 h-[8.125em] text-justify text-xs leading-[1.625] text-muted md:text-sm">
                 {pillar.body}
               </p>
             </Reveal>
@@ -206,18 +201,18 @@ export default function AboutPage() {
           <p className="mb-8 text-center text-[10px] tracking-[0.28em] text-muted uppercase">
             Trusted clients
           </p>
-          <div className="flex w-full flex-nowrap items-center justify-center gap-6">
+          <div className="flex w-full flex-wrap items-center justify-center gap-x-8 gap-y-6">
             {clientLogos.map((logo) => (
               <div
                 key={logo.src}
-                className="flex h-20 items-center justify-center md:h-24"
+                className="flex h-14 items-center justify-center md:h-24"
               >
                 <Image
                   src={logo.src}
                   alt={logo.alt}
                   width={420}
                   height={160}
-                  className="h-[5.25rem] w-auto max-w-[280px] object-contain opacity-90 md:h-[5.75rem] md:max-w-[330px]"
+                  className="h-14 w-auto max-w-[9.5rem] object-contain opacity-90 md:h-[5.75rem] md:max-w-[330px]"
                 />
               </div>
             ))}

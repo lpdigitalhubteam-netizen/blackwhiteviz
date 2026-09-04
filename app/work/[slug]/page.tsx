@@ -42,7 +42,7 @@ export default async function ProjectPage({ params }: Props) {
         <p className="mb-4 text-[10px] tracking-[0.28em] text-muted uppercase">
           {project.type}
         </p>
-        <h1 className="font-display text-4xl font-semibold tracking-tight uppercase md:text-6xl lg:text-7xl">
+        <h1 className="font-display text-3xl font-semibold tracking-tight uppercase md:text-6xl lg:text-7xl">
           {project.title}
         </h1>
 
@@ -94,16 +94,16 @@ export default async function ProjectPage({ params }: Props) {
         </Collage>
       </section>
 
-      <nav className="flex items-center justify-between gap-6 border-t border-line px-5 py-10 md:px-8">
+      <nav className="flex items-start justify-between gap-3 border-t border-line px-5 py-10 md:items-center md:gap-6 md:px-8">
         {prev ? (
           <Link
             href={`/work/${prev.slug}`}
-            className="max-w-[45%] transition-opacity hover:opacity-60"
+            className="max-w-[48%] transition-opacity hover:opacity-60"
           >
             <span className="mb-2 block text-[10px] tracking-[0.22em] text-muted uppercase">
               Previous
             </span>
-            <span className="font-display text-lg font-semibold tracking-tight uppercase md:text-2xl">
+            <span className="font-display text-base font-semibold tracking-tight uppercase md:text-2xl">
               {prev.title}
             </span>
           </Link>
@@ -113,12 +113,12 @@ export default async function ProjectPage({ params }: Props) {
         {next ? (
           <Link
             href={`/work/${next.slug}`}
-            className="max-w-[45%] text-right transition-opacity hover:opacity-60"
+            className="max-w-[48%] text-right transition-opacity hover:opacity-60"
           >
             <span className="mb-2 block text-[10px] tracking-[0.22em] text-muted uppercase">
               Next
             </span>
-            <span className="font-display text-lg font-semibold tracking-tight uppercase md:text-2xl">
+            <span className="font-display text-base font-semibold tracking-tight uppercase md:text-2xl">
               {next.title}
             </span>
           </Link>

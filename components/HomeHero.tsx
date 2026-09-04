@@ -13,7 +13,7 @@ function ArrowIcon({ direction }: { direction: "prev" | "next" }) {
   const flip = direction === "prev" ? "-scale-x-100" : "";
 
   return (
-    <span className={`relative flex h-16 w-16 items-center justify-center ${flip}`}>
+    <span className={`relative flex h-10 w-10 items-center justify-center md:h-16 md:w-16 ${flip}`}>
       <span className="absolute top-1/2 left-1 h-px w-0 origin-left bg-white/80 shadow-[0_0_12px_rgba(255,255,255,0.8)] transition-all duration-500 ease-out group-hover:w-8" />
       <svg
         width="36"
@@ -21,7 +21,7 @@ function ArrowIcon({ direction }: { direction: "prev" | "next" }) {
         viewBox="0 0 36 56"
         fill="none"
         aria-hidden
-        className="relative"
+        className="relative h-9 w-6 md:h-14 md:w-9"
       >
         <path
           d="M4 6l20 22L4 50"
@@ -116,8 +116,8 @@ export function HomeHero() {
         <ArrowIcon direction="next" />
       </button>
 
-      <div className="absolute right-0 bottom-0 left-0 z-[2] flex items-end justify-between gap-8 px-5 pb-10 md:px-8 md:pb-16 lg:px-10">
-        <div className="max-w-4xl">
+      <div className="absolute right-0 bottom-0 left-0 z-[2] flex flex-col justify-end gap-6 px-5 pb-24 md:flex-row md:items-end md:justify-between md:gap-8 md:px-8 md:pb-16 lg:px-10">
+        <div className="max-w-4xl pr-10 md:pr-0">
           <motion.h1
             className="font-display text-2xl leading-[1.02] font-semibold tracking-tight text-white uppercase md:text-4xl lg:text-5xl xl:text-6xl"
             initial={{ opacity: 0, y: 22 }}
@@ -146,7 +146,7 @@ export function HomeHero() {
           >
             <Link
               href={homeHeroCopy.cta.href}
-              className="inline-flex items-center gap-3 rounded-full border border-white/60 bg-black/55 px-6 py-3 text-[11px] tracking-[0.22em] text-white uppercase shadow-[0_8px_24px_rgba(0,0,0,0.45)] backdrop-blur-md transition-colors hover:bg-white hover:text-black"
+              className="inline-flex items-center gap-3 rounded-full border border-white/60 bg-black/55 px-5 py-3 text-[11px] tracking-[0.16em] text-white uppercase shadow-[0_8px_24px_rgba(0,0,0,0.45)] backdrop-blur-md transition-colors hover:bg-white hover:text-black md:px-6 md:tracking-[0.22em]"
             >
               {homeHeroCopy.cta.label}
               <span aria-hidden className="text-sm leading-none">
@@ -165,7 +165,7 @@ export function HomeHero() {
           ))}
         </div>
 
-        <div className="hidden flex-col items-end gap-3 pb-8 md:flex md:pb-10">
+        <div className="flex flex-col items-start gap-3 md:items-end md:pb-10">
           <AnimatePresence mode="wait">
             <motion.p
               key={slide.title}

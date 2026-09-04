@@ -62,8 +62,8 @@ export function Footer() {
   return (
     <footer className="mt-auto border-t border-line">
       <div className="px-5 py-14 md:px-8 md:py-20">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-5">
+        <div className="flex flex-col items-center gap-12 text-center lg:grid lg:grid-cols-12 lg:items-start lg:gap-10 lg:text-left">
+          <div className="flex w-full max-w-md flex-col items-center lg:col-span-5 lg:max-w-none lg:items-start">
             <Logo className="opacity-90 hover:opacity-100" />
             <p className="mt-6 font-display text-xl font-semibold tracking-tight uppercase md:text-2xl">
               {site.wordmark}
@@ -71,7 +71,7 @@ export function Footer() {
             <p className="mt-2 text-[11px] tracking-[0.22em] text-muted uppercase">
               By {site.parent}
             </p>
-            <p className="mt-5 max-w-md text-justify text-sm leading-relaxed text-muted">
+            <p className="mt-5 text-sm leading-relaxed text-muted lg:text-justify">
               We specialize in delivering 3D visualisation solutions that
               transform ideas into striking visual experiences. As one of the
               leading 3D visualisation companies, we combine creativity and
@@ -79,7 +79,7 @@ export function Footer() {
               rendering services in Dubai and beyond.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-2">
+            <div className="mt-8 flex flex-wrap justify-center gap-2 lg:justify-start">
               {site.regions.map((region) => (
                 <span
                   key={region}
@@ -91,16 +91,16 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="lg:col-span-4">
+          <div className="flex w-full max-w-md flex-col items-center lg:col-span-4 lg:max-w-none lg:items-start">
             <p className="mb-5 text-[10px] tracking-[0.28em] text-muted uppercase">
               Contact
             </p>
-            <div className="space-y-3">
+            <div className="w-full space-y-3">
               {site.contact.phones.map((phone) => (
                 <a
                   key={phone.href}
                   href={phone.href}
-                  className="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 transition-colors hover:border-white/20 hover:bg-white/[0.07]"
+                  className="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-left transition-colors hover:border-white/20 hover:bg-white/[0.07]"
                 >
                   <span>
                     <span className="block text-[10px] tracking-[0.22em] text-muted uppercase">
@@ -121,13 +121,13 @@ export function Footer() {
 
               <a
                 href={`mailto:${site.contact.email}`}
-                className="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 transition-colors hover:border-white/20 hover:bg-white/[0.07]"
+                className="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-left transition-colors hover:border-white/20 hover:bg-white/[0.07]"
               >
                 <span>
                   <span className="block text-[10px] tracking-[0.22em] text-muted uppercase">
                     Email
                   </span>
-                  <span className="mt-1 block text-sm text-foreground/90 md:text-base">
+                  <span className="mt-1 block text-sm break-all text-foreground/90 md:text-base">
                     {site.contact.email}
                   </span>
                 </span>
@@ -145,11 +145,23 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="lg:col-span-3">
-            <p className="mb-5 text-[10px] tracking-[0.28em] text-muted uppercase">
-              Follow
+          <div className="flex w-full flex-col items-center text-center lg:col-span-3">
+            <p className="mb-4 text-[10px] tracking-[0.28em] text-muted uppercase">
+              Explore
             </p>
-            <div className="flex flex-wrap gap-3">
+            <nav className="flex flex-col items-center gap-2.5">
+              {nav.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-[11px] tracking-[0.18em] text-foreground/70 uppercase transition-opacity hover:text-foreground"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="mt-14 flex flex-wrap justify-center gap-3">
               {site.social.map((item) => (
                 <a
                   key={item.label}
@@ -163,34 +175,14 @@ export function Footer() {
                 </a>
               ))}
             </div>
-
-            <p className="mt-8 mb-4 text-[10px] tracking-[0.28em] text-muted uppercase">
-              Explore
-            </p>
-            <nav className="flex flex-col gap-2.5">
-              {nav.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-[11px] tracking-[0.18em] text-foreground/70 uppercase transition-opacity hover:text-foreground"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-line px-5 py-6 md:px-8">
-        <div className="flex flex-col gap-3 text-[10px] tracking-[0.18em] text-muted uppercase md:flex-row md:items-center md:justify-between">
-          <p>
-            © {year} {site.wordmark}. All rights reserved.
-          </p>
-          <p>
-            {site.parent} · {site.regions.join(" · ")}
-          </p>
-        </div>
+      <div className="border-t border-line px-5 py-6 pb-24 md:px-8 md:pb-6">
+        <p className="text-center text-[10px] tracking-[0.16em] text-muted md:text-sm md:tracking-[0.12em]">
+          ©{year} BlackWhite Viz by {site.parent}
+        </p>
       </div>
     </footer>
   );

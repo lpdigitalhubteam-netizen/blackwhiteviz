@@ -129,11 +129,17 @@ export function Place({
       ) : null}
 
       {hover ? (
-        <div className="absolute right-4 bottom-4 translate-y-2 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 md:right-6 md:bottom-6">
-          <span className="font-display whitespace-pre-line text-xl font-semibold tracking-tight text-white uppercase drop-shadow-[0_2px_18px_rgba(0,0,0,0.65)] md:text-2xl lg:text-3xl">
-            {hover}
-          </span>
-        </div>
+        <>
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/60 to-transparent md:opacity-0 md:transition-opacity md:duration-500 md:group-hover:opacity-100"
+          />
+          <div className="absolute right-3 bottom-3 md:right-6 md:bottom-6">
+            <span className="font-display whitespace-pre-line text-base font-semibold tracking-tight text-white uppercase drop-shadow-[0_2px_18px_rgba(0,0,0,0.65)] opacity-100 translate-y-0 md:text-2xl lg:text-3xl md:translate-y-2 md:opacity-0 md:transition-all md:duration-500 md:group-hover:translate-y-0 md:group-hover:opacity-100">
+              {hover}
+            </span>
+          </div>
+        </>
       ) : null}
     </figure>
   );

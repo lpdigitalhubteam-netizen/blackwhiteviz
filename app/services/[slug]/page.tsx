@@ -47,11 +47,11 @@ export default async function ServiceDetailPage({ params }: Props) {
           className="h-full"
         />
         <HeroScrim />
-        <div className="absolute right-0 bottom-0 left-0 z-[2] px-5 pb-8 md:px-8 md:pb-10">
+        <div className="absolute right-0 bottom-0 left-0 z-[2] px-5 pb-12 md:px-8 md:pb-10">
           <p className="mb-3 text-[10px] tracking-[0.28em] text-muted uppercase">
             {service.kicker}
           </p>
-          <h1 className="font-display text-4xl font-semibold tracking-tight uppercase md:text-6xl">
+          <h1 className="font-display text-3xl font-semibold tracking-tight uppercase md:text-6xl">
             <ServiceTitle title={service.title} />
           </h1>
         </div>
@@ -60,7 +60,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       <section className="px-5 py-10 md:px-8 md:py-14">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
-            <h2 className="font-display text-2xl leading-tight font-semibold tracking-tight uppercase md:text-3xl">
+            <h2 className="font-display text-xl leading-tight font-semibold tracking-tight uppercase md:text-3xl">
               <RevealClip>{service.line}</RevealClip>
             </h2>
           </div>
@@ -100,16 +100,16 @@ export default async function ServiceDetailPage({ params }: Props) {
         </Collage>
       </section>
 
-      <nav className="flex items-center justify-between gap-6 border-t border-line px-5 py-10 md:px-8">
+      <nav className="flex items-start justify-between gap-3 border-t border-line px-5 py-10 md:items-center md:gap-6 md:px-8">
         {prev ? (
           <Link
             href={`/services/${prev.slug}`}
-            className="max-w-[45%] transition-opacity hover:opacity-60"
+            className="max-w-[48%] transition-opacity hover:opacity-60"
           >
             <span className="mb-2 block text-[10px] tracking-[0.22em] text-muted uppercase">
               Previous
             </span>
-            <span className="font-display text-lg font-semibold tracking-tight uppercase md:text-2xl">
+            <span className="font-display text-base font-semibold tracking-tight uppercase md:text-2xl">
               <ServiceTitle title={prev.title} />
             </span>
           </Link>
@@ -119,12 +119,12 @@ export default async function ServiceDetailPage({ params }: Props) {
         {next ? (
           <Link
             href={`/services/${next.slug}`}
-            className="max-w-[45%] text-right transition-opacity hover:opacity-60"
+            className="max-w-[48%] text-right transition-opacity hover:opacity-60"
           >
             <span className="mb-2 block text-[10px] tracking-[0.22em] text-muted uppercase">
               Next
             </span>
-            <span className="font-display text-lg font-semibold tracking-tight uppercase md:text-2xl">
+            <span className="font-display text-base font-semibold tracking-tight uppercase md:text-2xl">
               <ServiceTitle title={next.title} />
             </span>
           </Link>

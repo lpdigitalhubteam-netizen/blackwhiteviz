@@ -14,7 +14,7 @@ export default function BlogPage() {
         <p className="mb-3 text-[10px] tracking-[0.28em] text-muted uppercase">
           {blogIntro.kicker}
         </p>
-        <h1 className="font-display text-5xl font-semibold tracking-tight uppercase md:text-7xl">
+        <h1 className="font-display text-4xl font-semibold tracking-tight uppercase md:text-7xl">
           {blogIntro.title}
         </h1>
         <p className="mt-4 text-sm italic text-foreground/70 md:text-base">

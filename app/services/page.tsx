@@ -17,7 +17,7 @@ export default function ServicesPage() {
       <p className="mb-4 text-[10px] tracking-[0.28em] text-muted uppercase">
         04 — Services
       </p>
-      <h1 className="font-display mb-8 text-5xl leading-[1.05] font-semibold tracking-tight uppercase md:text-7xl">
+      <h1 className="font-display mb-8 text-4xl leading-[1.08] font-semibold tracking-tight uppercase md:text-7xl">
         3D Rendering Services
       </h1>
       <p className="mb-16 max-w-3xl text-sm leading-relaxed text-muted md:mb-24 md:text-base">
@@ -55,7 +55,7 @@ export default function ServicesPage() {
                 <p className="mb-3 text-[10px] tracking-[0.22em] text-muted uppercase">
                   {String(i + 1).padStart(2, "0")}
                 </p>
-                <h2 className="font-display mb-4 text-3xl font-semibold tracking-tight uppercase md:text-4xl">
+                <h2 className="font-display mb-4 text-2xl font-semibold tracking-tight uppercase md:text-4xl">
                   <ServiceTitle title={service.title} />
                 </h2>
                 <p className="mb-6 max-w-sm text-sm leading-relaxed text-muted">

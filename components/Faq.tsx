@@ -18,7 +18,7 @@ export function Faq({ items }: { items: FaqItem[] }) {
             <button
               type="button"
               onClick={() => setOpen(isOpen ? null : i)}
-              className="flex w-full items-start justify-between gap-6 py-5 text-left transition-opacity hover:opacity-80 md:py-6"
+              className="flex w-full items-start justify-between gap-3 py-5 text-left transition-opacity hover:opacity-80 md:gap-6 md:py-6"
               aria-expanded={isOpen}
             >
               <span className="font-display text-sm font-semibold leading-snug tracking-tight uppercase md:text-base">
