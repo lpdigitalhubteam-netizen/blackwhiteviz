@@ -4,11 +4,11 @@ export const site = {
   parent: "Latheif Productions",
   regions: ["UAE", "Africa", "Sri Lanka", "India"] as const,
   logo: {
-    src: "/logo/blackwhite_whitelogo.webp",
+    src: "/logo/bw_white_logo.webp",
     alt: "Blackwhite Viz",
-    width: 3039,
-    height: 2515,
-    version: "1",
+    width: 1024,
+    height: 1024,
+    version: "2",
   },
   tagline: "3D visualisation solutions in Dubai and beyond.",
   statement: [

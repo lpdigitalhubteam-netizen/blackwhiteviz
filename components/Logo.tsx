@@ -101,7 +101,7 @@ export function Logo({ className = "", onClick, priority = false }: LogoProps) {
       role="link"
       aria-label={`${site.name} home — drag logo to save`}
       fetchPriority={priority ? "high" : undefined}
-      className={`logo-image inline-block h-8 w-auto max-h-8 max-w-[3.75rem] shrink-0 object-contain object-left cursor-grab transition-opacity hover:opacity-80 active:cursor-grabbing md:h-12 md:max-h-12 md:max-w-[5.75rem] lg:h-14 lg:max-h-14 lg:max-w-[6.75rem] ${className}`}
+      className={`logo-image inline-block h-[5.25rem] w-auto max-h-none max-w-none shrink-0 object-contain object-left cursor-grab transition-opacity hover:opacity-80 active:cursor-grabbing md:h-28 lg:h-[7.5rem] ${className}`}
       style={{ aspectRatio: `${site.logo.width} / ${site.logo.height}` }}
     />
   );

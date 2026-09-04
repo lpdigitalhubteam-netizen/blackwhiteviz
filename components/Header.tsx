@@ -16,7 +16,7 @@ export function Header({
 
   return (
     <header className="pointer-events-none fixed top-0 right-0 left-0 z-50 bg-transparent">
-      <div className="pointer-events-auto mx-auto flex max-w-[90rem] items-center justify-between px-5 py-3 md:px-12 md:py-5 lg:px-16">
+      <div className="pointer-events-auto mx-auto flex max-w-[90rem] items-center justify-between px-5 py-2 md:px-12 md:py-3 lg:px-16">
         <Logo priority onClick={() => open && onToggle()} />
 
         <nav className="hidden items-center gap-6 rounded-full border border-white/40 bg-white/80 px-6 py-2.5 shadow-sm backdrop-blur-md lg:flex xl:gap-7 xl:px-7">
