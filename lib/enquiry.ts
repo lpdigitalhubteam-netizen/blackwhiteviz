@@ -7,6 +7,7 @@ export type EnquiryPayload = {
   company: string;
   phone: string;
   website?: string;
+  hp?: string;
 };
 
 export function enquirySubject(payload: EnquiryPayload) {

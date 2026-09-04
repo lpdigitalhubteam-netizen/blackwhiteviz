@@ -6,17 +6,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { PriceGuidelineForm } from "@/components/PriceGuidelineForm";
 
 const ease = [0.22, 1, 0.36, 1] as const;
-// Show the form while the user is still some distance above the footer.
-// Increase this number to make it appear earlier.
-const BOTTOM_OFFSET_PX = 520;
-const DISMISS_KEY = "bwv-price-slide-dismissed";
-
-function isNearBottom() {
-  return (
-    window.scrollY + window.innerHeight >=
-    document.documentElement.scrollHeight - BOTTOM_OFFSET_PX
-  );
-}
+const SHOW_AFTER_MS = 1400;
+const DISMISS_KEY = "bwv-price-slide-dismissed-v2";
 
 export function PriceGuidelineSlideIn() {
   const pathname = usePathname();
@@ -26,29 +17,19 @@ export function PriceGuidelineSlideIn() {
     pathname === "/contact" || pathname.startsWith("/contact/");
 
   useEffect(() => {
-    // Persist "closed" state per page so it can appear again on other pages.
     const key = `${DISMISS_KEY}:${pathname}`;
-    setDismissed(sessionStorage.getItem(key) === "1");
+    const alreadyClosed = sessionStorage.getItem(key) === "1";
+    setDismissed(alreadyClosed);
     setVisible(false);
-  }, [pathname]);
 
-  useEffect(() => {
-    if (dismissed || hideOnContact) return;
+    if (alreadyClosed || hideOnContact) return;
 
-    function onScroll() {
-      // Once it appears, keep it visible until the user explicitly closes it.
-      setVisible((prev) => prev || isNearBottom());
-    }
+    const timer = window.setTimeout(() => {
+      setVisible(true);
+    }, SHOW_AFTER_MS);
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    onScroll();
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, [dismissed, hideOnContact]);
+    return () => window.clearTimeout(timer);
+  }, [pathname, hideOnContact]);
 
   const dismiss = useCallback(() => {
     const key = `${DISMISS_KEY}:${pathname}`;

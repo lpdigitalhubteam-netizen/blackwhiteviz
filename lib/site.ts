@@ -22,6 +22,7 @@ export const site = {
   },
   contact: {
     email: "hello@blackwhiteviz.com",
+    enquiryEmail: "office@blackwhiteviz.com",
     phone: "+971 50 214 8129",
     phoneHref: "tel:+971502148129",
     phones: [

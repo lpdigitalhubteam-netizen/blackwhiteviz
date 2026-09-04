@@ -56,8 +56,8 @@ export default function ContactPage() {
 
         <div className="relative min-h-[42svh] md:min-h-[85svh]">
           <Place
-            alt="Contact — Tower Three evening exterior"
-            src="/project/Tower3/gcam - 1_evening_rev16 copy.webp"
+            alt="Contact — Water Villa night exterior"
+            src="/project/WATER VILLA/Villa V4 Night_01 copy.webp"
             ratio="3/4"
             index="—"
             fill

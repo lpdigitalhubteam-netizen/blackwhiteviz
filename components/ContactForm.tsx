@@ -20,7 +20,7 @@ export function ContactForm() {
     const email = String(data.get("email") ?? "").trim();
     const company = String(data.get("company") ?? "").trim();
     const phone = String(data.get("phone") ?? "").trim();
-    const website = String(data.get("website") ?? "").trim();
+    const hp = String(data.get("hp_company_url") ?? "").trim();
 
     try {
       await submitEnquiry({
@@ -29,7 +29,7 @@ export function ContactForm() {
         email,
         company,
         phone,
-        website,
+        hp,
       });
       setStatus("success");
     } catch (err) {
@@ -42,8 +42,8 @@ export function ContactForm() {
     return (
       <p className="max-w-md text-sm leading-relaxed text-muted">
         Thank you — your enquiry was sent to{" "}
-        <a className="text-foreground" href={`mailto:${site.contact.email}`}>
-          {site.contact.email}
+        <a className="text-foreground" href={`mailto:${site.contact.enquiryEmail}`}>
+          {site.contact.enquiryEmail}
         </a>
         . We will reply shortly.
       </p>
@@ -51,15 +51,18 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="flex max-w-lg flex-col gap-5">
-      <input
-        type="text"
-        name="website"
-        tabIndex={-1}
-        autoComplete="off"
-        className="hidden"
-        aria-hidden
-      />
+    <form onSubmit={onSubmit} autoComplete="off" className="relative flex max-w-lg flex-col gap-5">
+      <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
+        <label>
+          Company URL
+          <input
+            type="text"
+            name="hp_company_url"
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </label>
+      </div>
 
       <label className="block">
         <span className="mb-2 block text-[10px] tracking-[0.22em] text-muted uppercase">

@@ -62,7 +62,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
   }
 
-  if (payload.website) {
+  if (payload.website?.trim() || payload.hp?.trim()) {
     return NextResponse.json({ ok: true });
   }
 
@@ -100,7 +100,7 @@ export async function POST(request: Request) {
   const subject = enquirySubject(normalized);
   const html = enquiryHtml(normalized);
   const text = enquiryText(normalized);
-  const to = enquiryToAddresses(site.contact.email);
+  const to = enquiryToAddresses(site.contact.enquiryEmail);
   const from = enquiryFromAddress();
 
   const mailUrl = getHostingerMailUrl();
