@@ -1,11 +1,15 @@
 import nodemailer from "nodemailer";
 import type SMTPTransport from "nodemailer/lib/smtp-transport";
 
+function unquote(value: string) {
+  return value.trim().replace(/^["']|["']$/g, "").trim();
+}
+
 export function getMailConfig() {
-  const user = process.env.SMTP_USER?.trim();
-  const pass = process.env.SMTP_PASS?.trim();
-  const host = process.env.SMTP_HOST?.trim() ?? "smtp.hostinger.com";
-  const port = Number(process.env.SMTP_PORT ?? 465);
+  const user = unquote(process.env.SMTP_USER ?? "");
+  const pass = unquote(process.env.SMTP_PASS ?? "");
+  const host = unquote(process.env.SMTP_HOST ?? "") || "smtp.titan.email";
+  const port = Number(unquote(process.env.SMTP_PORT ?? "") || "587");
 
   if (!user || !pass) {
     return null;
@@ -36,6 +40,38 @@ function transportOptions(
   };
 }
 
+async function sendViaSendmail(options: {
+  from: string;
+  to: string[];
+  replyTo: string;
+  subject: string;
+  html: string;
+  text: string;
+}) {
+  if (process.platform === "win32") {
+    throw new Error("Sendmail is not available on Windows.");
+  }
+
+  const transport = nodemailer.createTransport({
+    sendmail: true,
+    newline: "unix",
+    path: process.env.SENDMAIL_PATH?.trim() || "/usr/sbin/sendmail",
+  });
+
+  try {
+    await transport.sendMail({
+      from: options.from,
+      to: options.to,
+      replyTo: options.replyTo,
+      subject: options.subject,
+      html: options.html,
+      text: options.text,
+    });
+  } finally {
+    transport.close();
+  }
+}
+
 export async function sendViaSmtp(options: {
   from: string;
   to: string[];
@@ -49,7 +85,7 @@ export async function sendViaSmtp(options: {
     throw new Error("SMTP is not configured.");
   }
 
-  const ports = config.port === 587 ? [587] : [465, 587];
+  const ports = config.port === 465 ? [465, 587] : [587, 465];
   let lastError: unknown;
 
   for (const port of ports) {
@@ -68,6 +104,15 @@ export async function sendViaSmtp(options: {
     } catch (error) {
       lastError = error;
       transport.close();
+    }
+  }
+
+  if (process.platform !== "win32") {
+    try {
+      await sendViaSendmail(options);
+      return;
+    } catch (error) {
+      lastError = lastError ?? error;
     }
   }
 

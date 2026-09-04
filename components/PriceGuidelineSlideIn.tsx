@@ -22,6 +22,8 @@ export function PriceGuidelineSlideIn() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
+  const hideOnContact =
+    pathname === "/contact" || pathname.startsWith("/contact/");
 
   useEffect(() => {
     // Persist "closed" state per page so it can appear again on other pages.
@@ -31,7 +33,7 @@ export function PriceGuidelineSlideIn() {
   }, [pathname]);
 
   useEffect(() => {
-    if (dismissed) return;
+    if (dismissed || hideOnContact) return;
 
     function onScroll() {
       // Once it appears, keep it visible until the user explicitly closes it.
@@ -46,7 +48,7 @@ export function PriceGuidelineSlideIn() {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
-  }, [dismissed]);
+  }, [dismissed, hideOnContact]);
 
   const dismiss = useCallback(() => {
     const key = `${DISMISS_KEY}:${pathname}`;
@@ -54,6 +56,10 @@ export function PriceGuidelineSlideIn() {
     setDismissed(true);
     setVisible(false);
   }, [pathname]);
+
+  if (hideOnContact) {
+    return null;
+  }
 
   return (
     <AnimatePresence>

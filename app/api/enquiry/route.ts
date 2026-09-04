@@ -139,12 +139,16 @@ export async function POST(request: Request) {
         : "";
     let hint = "";
     if (process.env.NODE_ENV === "development") {
+      const message =
+        error instanceof Error ? error.message : "Unknown mail error";
       if (code === "EAUTH") {
         hint =
-          " SMTP login failed — confirm you can sign in at Hostinger webmail, then set SMTP_HOST (smtp.titan.email for Titan, smtp.hostinger.com for Hostinger Email), SMTP_USER, and the new SMTP_PASS in .env.local and restart npm run dev.";
+          " SMTP login failed — use the Titan mailbox password in .env.local (not quoted), SMTP_HOST=smtp.titan.email, then restart npm run dev.";
       } else if (response.includes("dkim")) {
         hint =
-          " DKIM is missing in DNS — in Hostinger hPanel go to Emails → Manage → Email Reputation → Add DKIM record, copy the TXT record into DNS for blackwhiteviz.com, verify, wait up to 30 minutes, then try again.";
+          " DKIM is missing in DNS — add the Titan DKIM TXT record in Hostinger, verify it, then try again.";
+      } else {
+        hint = ` ${message}`;
       }
     }
     return NextResponse.json(
