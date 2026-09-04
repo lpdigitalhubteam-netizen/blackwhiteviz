@@ -31,7 +31,7 @@ export const seo = {
     description:
       "See photoreal renders for real estate sales — villas, towers, and masterplans by Blackwhite Viz, a real estate rendering company in Dubai.",
     intro:
-      "A selection of photoreal renders for real estate sales and marketing — from waterfront villas to towers and masterplans, produced by our real estate rendering company in Dubai.",
+      "A selection of photoreal renders for real estate sales and marketing, from waterfront villas to towers and masterplans, produced by our real estate rendering company in Dubai.",
   },
   contact: {
     title: "Contact | 3D Rendering Company UAE | Blackwhite Viz",

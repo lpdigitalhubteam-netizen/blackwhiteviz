@@ -30,6 +30,8 @@ export function StickyScrollImage({ src, alt }: StickyScrollImageProps) {
           src={encoded}
           alt={alt}
           fill
+          priority
+          loading="eager"
           sizes="100vw"
           className="object-cover"
         />

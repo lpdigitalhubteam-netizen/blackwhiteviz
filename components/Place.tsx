@@ -71,15 +71,21 @@ export function Place({
   const frame = (
     <figure
       className={`group relative overflow-hidden ${
-        contain ? "bg-transparent" : "bg-panel"
+        contain ? "bg-background" : "bg-panel"
       } ${
         fill
           ? "place-fill h-full w-full"
+          : contain
+            ? "min-h-[55svh] w-full md:min-h-[72svh]"
           : match
             ? "h-full min-h-48 w-full aspect-[16/9] md:aspect-auto md:min-h-0"
             : "min-h-48 w-full md:min-h-64"
       } ${zoomable ? "cursor-zoom-in" : href ? "cursor-pointer" : ""} ${className}`}
-      style={stretch ? undefined : { aspectRatio: ratio.replace("/", " / ") }}
+      style={
+        stretch || contain
+          ? undefined
+          : { aspectRatio: ratio.replace("/", " / ") }
+      }
       onClick={zoomable ? openStill : undefined}
       onKeyDown={
         zoomable
@@ -102,7 +108,7 @@ export function Place({
           alt={alt}
           fill
           sizes="(min-width: 1024px) 70vw, 100vw"
-          className={`${objectClass} transition-transform duration-700 ease-out group-hover:scale-[1.04]`}
+          className={`${objectClass} ${contain ? "" : "transition-transform duration-700 ease-out group-hover:scale-[1.04]"}`}
           priority={fill}
         />
       ) : (
@@ -162,12 +168,16 @@ export function Place({
 export function Collage({
   children,
   className = "gap-2 md:gap-3",
+  twoUp = false,
 }: {
   children: React.ReactNode;
   className?: string;
+  twoUp?: boolean;
 }) {
   return (
-    <div className={`grid grid-cols-1 md:grid-cols-12 ${className}`}>
+    <div
+      className={`${twoUp ? "grid grid-cols-2 md:grid-cols-12" : "grid grid-cols-1 md:grid-cols-12"} ${className}`}
+    >
       {children}
     </div>
   );

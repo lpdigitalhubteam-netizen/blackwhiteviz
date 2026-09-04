@@ -10,15 +10,28 @@ export const metadata: Metadata = {
 };
 
 const workItems = [
-  { slug: "water-villa", tile: "wide" },
+  { slug: "water-villa", tile: "wide", cover: "Villa V4_01 Final copy.webp" },
   { slug: "tower-2", tile: "tall" },
-  { slug: "kenya-villa", tile: "third" },
-  { slug: "nshama", tile: "third" },
+  { slug: "kenya-villa", tile: "third", cover: "Villa - Night copy.webp" },
+  { slug: "nshama", tile: "third", cover: "balcony copy.webp" },
   { slug: "fort", tile: "third" },
   { slug: "tower-3", tile: "tall" },
-  { slug: "heritage", tile: "wide" },
+  { slug: "heritage", tile: "wide", cover: "Storytelling copy.webp" },
+  { slug: "concept-tower", tile: "wide" },
+  { slug: "tower-1", tile: "tall" },
   { slug: "interior", tile: "full" },
 ] as const;
+
+function workCover(
+  project: NonNullable<ReturnType<typeof getProject>>,
+  cover?: string,
+) {
+  if (!cover) return project.frames[0];
+  return (
+    project.frames.find((frame) => frame.src?.endsWith(`/${cover}`)) ??
+    project.frames[0]
+  );
+}
 
 export default function WorkPage() {
   return (
@@ -40,7 +53,10 @@ export default function WorkPage() {
           {workItems.map((item, i) => {
             const project = getProject(item.slug);
             if (!project) return null;
-            const frame = project.frames[0];
+            const frame = workCover(
+              project,
+              "cover" in item ? item.cover : undefined,
+            );
             return (
               <RevealItem
                 key={project.slug}

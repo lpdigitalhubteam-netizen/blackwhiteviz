@@ -78,7 +78,7 @@ export default async function ProjectPage({ params }: Props) {
       </section>
 
       <section className="px-5 pb-24 md:px-8 md:pb-32">
-        <Collage className="gap-2 md:gap-3">
+        <Collage className="gap-2 md:gap-3" twoUp={project.frames.length === 2}>
           {project.frames.map((frame, i) => (
             <Place
               key={frame.alt}
@@ -86,6 +86,7 @@ export default async function ProjectPage({ params }: Props) {
               src={frame.src}
               ratio="16/9"
               tile={tiles[i]}
+              contain
               index={String(i + 1).padStart(2, "0")}
               gallery={gallery}
               bare
