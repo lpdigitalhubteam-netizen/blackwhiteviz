@@ -57,6 +57,24 @@ export const homeHeroSlides = [
     paragraph:
       "Cultural environments recreated with detail, mood, and realism.",
   },
+  {
+    src: cover("balcony copy.webp"),
+    alt: "Interior balcony 3D rendering",
+    title: "Interior Balcony",
+    kicker: "Interior",
+    lines: ["Interior", "Balcony Views"],
+    paragraph:
+      "Private terraces and living spaces rendered with light, material, and outlook.",
+  },
+  {
+    src: cover("cam - 2 copy.webp"),
+    alt: "Landscape and site visualization",
+    title: "Landscape Context",
+    kicker: "Landscape",
+    lines: ["Landscape", "And Site"],
+    paragraph:
+      "Ground, greenery, and approach rendered with the same care as the building.",
+  },
 ] as const;
 
 export const homeHeroCopy = {

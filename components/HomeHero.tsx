@@ -2,23 +2,73 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { homeHeroCopy, homeHeroSlides } from "@/lib/home";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const HOLD_MS = 5200;
 
+function ArrowIcon({ direction }: { direction: "prev" | "next" }) {
+  const flip = direction === "prev" ? "-scale-x-100" : "";
+
+  return (
+    <span className={`relative flex h-16 w-16 items-center justify-center ${flip}`}>
+      <span className="absolute top-1/2 left-1 h-px w-0 origin-left bg-white/80 shadow-[0_0_12px_rgba(255,255,255,0.8)] transition-all duration-500 ease-out group-hover:w-8" />
+      <svg
+        width="36"
+        height="56"
+        viewBox="0 0 36 56"
+        fill="none"
+        aria-hidden
+        className="relative"
+      >
+        <path
+          d="M4 6l20 22L4 50"
+          stroke="currentColor"
+          strokeWidth="1.15"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="opacity-35 transition-opacity duration-300 group-hover:opacity-70"
+        />
+        <path
+          d="M14 6l20 22-20 22"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="transition-transform duration-500 ease-out group-hover:translate-x-1"
+        />
+      </svg>
+    </span>
+  );
+}
+
 export function HomeHero() {
+  const total = homeHeroSlides.length;
   const [index, setIndex] = useState(0);
-  const slide = homeHeroSlides[index];
+  const [tick, setTick] = useState(0);
+  const safeIndex = ((index % total) + total) % total;
+  const slide = homeHeroSlides[safeIndex];
+
+  const goTo = useCallback(
+    (next: number) => {
+      setIndex(((next % total) + total) % total);
+      setTick((value) => value + 1);
+    },
+    [total],
+  );
+
+  useEffect(() => {
+    if (index >= total) setIndex(0);
+  }, [index, total]);
 
   useEffect(() => {
     const id = window.setInterval(() => {
-      setIndex((current) => (current + 1) % homeHeroSlides.length);
+      setIndex((current) => (current + 1) % total);
     }, HOLD_MS);
     return () => window.clearInterval(id);
-  }, []);
+  }, [tick, total]);
 
   return (
     <section className="relative h-[100svh] min-h-[36rem] overflow-hidden">
@@ -41,7 +91,7 @@ export function HomeHero() {
               src={encodeURI(slide.src)}
               alt={slide.alt}
               fill
-              priority={index === 0}
+              priority={safeIndex === 0}
               sizes="100vw"
               className="object-cover"
             />
@@ -49,16 +99,25 @@ export function HomeHero() {
         </motion.div>
       </AnimatePresence>
 
+      <button
+        type="button"
+        aria-label="Previous slide"
+        onClick={() => goTo(safeIndex - 1)}
+        className="group absolute top-1/2 left-1 z-[3] -translate-y-1/2 bg-transparent p-1 text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.85)] md:left-3"
+      >
+        <ArrowIcon direction="prev" />
+      </button>
+      <button
+        type="button"
+        aria-label="Next slide"
+        onClick={() => goTo(safeIndex + 1)}
+        className="group absolute top-1/2 right-1 z-[3] -translate-y-1/2 bg-transparent p-1 text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.85)] md:right-3"
+      >
+        <ArrowIcon direction="next" />
+      </button>
+
       <div className="absolute right-0 bottom-0 left-0 z-[2] flex items-end justify-between gap-8 px-5 pb-10 md:px-8 md:pb-16 lg:px-10">
         <div className="max-w-4xl">
-          <motion.p
-            className="mb-4 text-[10px] tracking-[0.32em] text-white/60 uppercase"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease }}
-          >
-            {slide.kicker}
-          </motion.p>
           <motion.h1
             className="font-display text-2xl leading-[1.02] font-semibold tracking-tight text-white uppercase md:text-4xl lg:text-5xl xl:text-6xl"
             initial={{ opacity: 0, y: 22 }}
@@ -87,7 +146,7 @@ export function HomeHero() {
           >
             <Link
               href={homeHeroCopy.cta.href}
-              className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-6 py-3 text-[11px] tracking-[0.22em] text-white uppercase transition-colors hover:bg-white/20"
+              className="inline-flex items-center gap-3 rounded-full border border-white/60 bg-black/55 px-6 py-3 text-[11px] tracking-[0.22em] text-white uppercase shadow-[0_8px_24px_rgba(0,0,0,0.45)] backdrop-blur-md transition-colors hover:bg-white hover:text-black"
             >
               {homeHeroCopy.cta.label}
               <span aria-hidden className="text-sm leading-none">
@@ -106,7 +165,7 @@ export function HomeHero() {
           ))}
         </div>
 
-        <div className="hidden flex-col items-end gap-3 pb-1 md:flex">
+        <div className="hidden flex-col items-end gap-3 pb-8 md:flex md:pb-10">
           <AnimatePresence mode="wait">
             <motion.p
               key={slide.title}
@@ -125,9 +184,9 @@ export function HomeHero() {
                 key={item.src}
                 type="button"
                 aria-label={`Show ${item.title}`}
-                onClick={() => setIndex(i)}
+                onClick={() => goTo(i)}
                 className={`h-px transition-all duration-500 ${
-                  i === index ? "w-8 bg-white" : "w-3 bg-white/35 hover:bg-white/60"
+                  i === safeIndex ? "w-8 bg-white" : "w-3 bg-white/35 hover:bg-white/60"
                 }`}
               />
             ))}
