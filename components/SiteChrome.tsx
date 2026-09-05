@@ -1,11 +1,22 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { Header } from "@/components/Header";
 import { LightboxProvider } from "@/components/Lightbox";
-import { Menu } from "@/components/Menu";
-import { PriceGuidelineSlideIn } from "@/components/PriceGuidelineSlideIn";
 import { WhatsAppChatButton } from "@/components/WhatsAppChatButton";
+
+const Menu = dynamic(
+  () => import("@/components/Menu").then((mod) => mod.Menu),
+  { ssr: false },
+);
+const PriceGuidelineSlideIn = dynamic(
+  () =>
+    import("@/components/PriceGuidelineSlideIn").then(
+      (mod) => mod.PriceGuidelineSlideIn,
+    ),
+  { ssr: false },
+);
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
