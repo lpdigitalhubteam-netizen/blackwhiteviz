@@ -22,7 +22,7 @@ export const seo = {
   services: {
     title: "3D Rendering Services for Architects Dubai | Blackwhite Viz",
     description:
-      "Explore 3D rendering services for architects in Dubai — exterior, interior, landscape, walkthroughs, floor plans, and AR/VR visualization.",
+      "Explore 3D rendering services for architects in Dubai — exterior, interior, 360 panoramas, walkthroughs, floor plans, and AR/VR visualization.",
     intro:
       "From exterior and interior renders to walkthrough animations and floor plans, our 3D rendering services help architects and developers in Dubai turn drawings into decisions.",
   },

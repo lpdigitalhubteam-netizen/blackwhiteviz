@@ -66,7 +66,7 @@ export const serviceFaqs: FaqItem[] = [
   {
     question: "What 3D rendering services does Blackwhite Viz offer?",
     answer:
-      "We deliver exterior architectural rendering, interior stills, landscape and site context, interior design support, walkthrough videos, and AR/VR visualization. Each service can be commissioned on its own or as a full visual set for a launch.",
+      "We deliver exterior architectural rendering, interior stills, 360 panoramas, interior design support, walkthrough videos, and AR/VR visualization. Each service can be commissioned on its own or as a full visual set for a launch.",
   },
   {
     question: "What files do you need to start a rendering project?",
@@ -89,9 +89,9 @@ export const serviceFaqs: FaqItem[] = [
       "Exterior rendering covers façades, podiums, street life, and how the building meets the site. Interior rendering focuses on rooms, materials, furniture, and daylight. Most sales and design decks need both so the project reads as a complete place.",
   },
   {
-    question: "Do you produce landscape rendering with the architecture?",
+    question: "Do you produce 360 panoramas?",
     answer:
-      "Yes. Pools, gardens, paving, and surrounding context are lit and finished with the same care as the building, so amenity and site sell in the same frame as the architecture.",
+      "Yes. We create photoreal 360 panoramas so clients can look around a space from a single viewpoint — interiors, amenities, and exteriors ready for virtual tours and sales galleries.",
   },
   {
     question: "Can you create 3D walkthrough videos and AR/VR?",

@@ -1,5 +1,8 @@
+import dns from "node:dns";
 import nodemailer from "nodemailer";
 import type SMTPTransport from "nodemailer/lib/smtp-transport";
+
+dns.setDefaultResultOrder("ipv4first");
 
 function unquote(value: string) {
   return value.trim().replace(/^["']|["']$/g, "").trim();
@@ -8,7 +11,7 @@ function unquote(value: string) {
 export function getMailConfig() {
   const user = unquote(process.env.SMTP_USER ?? "");
   const pass = unquote(process.env.SMTP_PASS ?? "");
-  const host = unquote(process.env.SMTP_HOST ?? "") || "smtp.titan.email";
+  const host = unquote(process.env.SMTP_HOST ?? "") || "smtp.office365.com";
   const port = Number(unquote(process.env.SMTP_PORT ?? "") || "587");
 
   if (!user || !pass) {
@@ -85,7 +88,7 @@ export async function sendViaSmtp(options: {
     throw new Error("SMTP is not configured.");
   }
 
-  const ports = config.port === 465 ? [465, 587] : [587, 465];
+  const ports = [config.port];
   let lastError: unknown;
 
   for (const port of ports) {

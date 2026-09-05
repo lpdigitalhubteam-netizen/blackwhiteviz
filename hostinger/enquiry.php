@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 $secret = 'REPLACE_WITH_A_LONG_RANDOM_SECRET';
 $to = 'hello@blackwhiteviz.com';
-$from = 'office@blackwhiteviz.com';
+$from = 'hello@blackwhiteviz.com';
 $fromName = 'Blackwhite Viz';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

@@ -11,6 +11,11 @@ const nextConfig = {
         destination: "/services/3d-walkthrough-videos",
         permanent: true,
       },
+      {
+        source: "/services/landscape-rendering",
+        destination: "/services/360-panorama",
+        permanent: true,
+      },
     ];
   },
 };

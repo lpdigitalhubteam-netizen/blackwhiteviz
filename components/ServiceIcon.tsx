@@ -32,13 +32,13 @@ export function ServiceIcon({ slug }: { slug: string }) {
           <path d="M18 11V8l3 2" />
         </IconFrame>
       );
-    case "landscape-rendering":
+    case "360-panorama":
       return (
         <IconFrame>
-          <path d="M3 20h18" />
-          <path d="M5 20c1.2-4 3.2-7 5-7s2.2 1.5 3 3c.6-3.2 2.4-6 4.5-6 2 0 3.5 3.2 3.5 10" />
-          <path d="M12 13v7" />
-          <circle cx="7.5" cy="6.5" r="1.4" />
+          <circle cx="12" cy="12" r="8" />
+          <path d="M4 12h16" />
+          <path d="M12 4c2.2 2.4 3.4 5.2 3.4 8s-1.2 5.6-3.4 8" />
+          <path d="M12 4c-2.2 2.4-3.4 5.2-3.4 8s1.2 5.6 3.4 8" />
         </IconFrame>
       );
     case "3d-interior-renderings":

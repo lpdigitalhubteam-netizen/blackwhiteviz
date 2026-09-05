@@ -143,10 +143,13 @@ export async function POST(request: Request) {
         error instanceof Error ? error.message : "Unknown mail error";
       if (code === "EAUTH") {
         hint =
-          " SMTP login failed — use the Titan mailbox password in .env.local (not quoted), SMTP_HOST=smtp.titan.email, then restart npm run dev.";
+          " SMTP login failed — put the Outlook password for hello@blackwhiteviz.com in SMTP_PASS (App Password if MFA is on), then restart npm run dev.";
+      } else if (code === "ENETUNREACH" || code === "ECONNREFUSED" || code === "ETIMEDOUT") {
+        hint =
+          " Could not reach Outlook SMTP over this network. Restart npm run dev after the IPv4 mail fix, or try another connection.";
       } else if (response.includes("dkim")) {
         hint =
-          " DKIM is missing in DNS — add the Titan DKIM TXT record in Hostinger, verify it, then try again.";
+          " DKIM or SPF is missing in DNS for hello@blackwhiteviz.com — check Microsoft 365 DNS records, then try again.";
       } else {
         hint = ` ${message}`;
       }

@@ -96,8 +96,8 @@ export const homeAbout = {
       href: "/services/interior-design-support",
     },
     {
-      label: "Landscape Design",
-      href: "/services/landscape-rendering",
+      label: "360 Panorama",
+      href: "/services/360-panorama",
     },
   ],
 };
@@ -121,8 +121,8 @@ export const homeServices = [
   },
   {
     slug: "animations",
-    title: "3D Walkthrough Videos / 2D Floor Plans",
-    line: "Cinematic walkthroughs when a still is not enough — plus 2D floor plans for clear layout and flow.",
+    title: "3D Walkthrough Videos",
+    line: "Cinematic walkthroughs when a still is not enough.",
     href: "/services/3d-walkthrough-videos",
     stills: [
       {
@@ -153,17 +153,17 @@ export const homeServices = [
   },
   {
     slug: "aerial",
-    title: "Aerial & Landscape",
-    line: "Masterplans, gardens, and the plot from the air. How the project meets the city, the coast, or the sand.",
-    href: "/services/landscape-rendering",
+    title: "360 Panorama",
+    line: "Look around a room, amenity, or site from one still. Built for virtual tours, galleries, and immersive sales decks.",
+    href: "/services/360-panorama",
     stills: [
       {
-        src: projectSrc("Fort", "cam - 2 copy.webp"),
-        alt: "Landscape — fort exterior",
+        src: projectSrc("WATER VILLA", "Villa V4_01 Final copy.webp"),
+        alt: "360 panorama — Water Villa",
       },
       {
-        src: projectSrc("nshama", "pool copy.webp"),
-        alt: "Landscape — pool still",
+        src: projectSrc("KENYA-VILLA", "Villa - Night copy.webp"),
+        alt: "360 panorama — Kenya Villa",
       },
     ],
   },

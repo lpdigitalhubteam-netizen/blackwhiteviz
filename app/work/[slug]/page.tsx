@@ -86,7 +86,6 @@ export default async function ProjectPage({ params }: Props) {
               src={frame.src}
               ratio="16/9"
               tile={tiles[i]}
-              contain
               index={String(i + 1).padStart(2, "0")}
               gallery={gallery}
               bare
