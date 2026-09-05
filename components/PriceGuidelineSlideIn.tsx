@@ -6,8 +6,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { PriceGuidelineForm } from "@/components/PriceGuidelineForm";
 
 const ease = [0.22, 1, 0.36, 1] as const;
-const SHOW_AFTER_MS = 1400;
 const DISMISS_KEY = "bwv-price-slide-dismissed-v2";
+const SHOW_AT_SCROLL = 0.5;
 
 export function PriceGuidelineSlideIn() {
   const pathname = usePathname();
@@ -24,11 +24,23 @@ export function PriceGuidelineSlideIn() {
 
     if (alreadyClosed || hideOnContact) return;
 
-    const timer = window.setTimeout(() => {
-      setVisible(true);
-    }, SHOW_AFTER_MS);
+    const reachedMiddle = () => {
+      const maxScroll =
+        document.documentElement.scrollHeight - window.innerHeight;
+      if (maxScroll <= 0) return false;
+      return window.scrollY / maxScroll >= SHOW_AT_SCROLL;
+    };
 
-    return () => window.clearTimeout(timer);
+    const onScroll = () => {
+      if (!reachedMiddle()) return;
+      setVisible(true);
+      window.removeEventListener("scroll", onScroll);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => window.removeEventListener("scroll", onScroll);
   }, [pathname, hideOnContact]);
 
   const dismiss = useCallback(() => {

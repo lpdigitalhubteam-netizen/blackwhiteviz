@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Faq } from "@/components/Faq";
 import { Place } from "@/components/Place";
 import { Reveal } from "@/components/Reveal";
 import { ServiceTitle } from "@/components/ServiceTitle";
+import { serviceFaqs } from "@/lib/faq";
 import { absoluteTitle, seo } from "@/lib/seo";
 import { servicePages } from "@/lib/services";
 
@@ -72,6 +74,17 @@ export default function ServicesPage() {
           </article>
         ))}
       </div>
+
+      <section className="pt-20 md:pt-28">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="font-display text-xl font-semibold tracking-tight uppercase md:text-5xl">
+            FAQ&apos;s
+          </h2>
+        </div>
+        <div className="mx-auto mt-10 max-w-3xl">
+          <Faq items={serviceFaqs} />
+        </div>
+      </section>
     </main>
   );
 }

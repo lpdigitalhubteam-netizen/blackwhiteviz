@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteChrome } from "@/components/SiteChrome";
 import { seo } from "@/lib/seo";
+import { averta } from "./fonts";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -31,11 +32,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="h-full antialiased"
+      className={`${averta.variable} h-full antialiased`}
     >
       <body
         suppressHydrationWarning
-        className="flex min-h-full flex-col bg-background text-foreground"
+        className={`${averta.className} flex min-h-full flex-col bg-background text-foreground`}
       >
         <SiteChrome>
           <div className="flex min-h-full flex-1 flex-col">{children}</div>

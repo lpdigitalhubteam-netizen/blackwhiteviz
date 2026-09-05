@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "@fontsource-variable/inter";
 
 :root {
   --background: #070707;
@@ -7,8 +6,6 @@
   --muted: #8a8a84;
   --line: #1c1c1c;
   --panel: #101010;
-  --font-sf-pro: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
-    "Inter Variable", "Inter", sans-serif;
 }
 
 @theme inline {
@@ -17,10 +14,10 @@
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-panel: var(--panel);
-  --font-sans: var(--font-sf-pro);
-  --font-display: var(--font-sf-pro);
-  --font-serif: var(--font-sf-pro);
-  --font-mono: var(--font-sf-pro);
+  --font-sans: var(--font-averta);
+  --font-display: var(--font-averta);
+  --font-serif: var(--font-averta);
+  --font-mono: var(--font-averta);
 }
 
 html {

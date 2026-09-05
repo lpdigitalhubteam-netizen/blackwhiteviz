@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { ImageTrail } from "@/components/ImageTrail";
 import { nav, site } from "@/lib/site";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -27,9 +26,8 @@ export function Menu({
           exit={{ clipPath: "inset(0 0 100% 0)" }}
           transition={{ duration: 0.7, ease }}
         >
-          <ImageTrail active={open} />
           <div className="relative z-10 flex h-full flex-col justify-between px-5 pt-24 pb-8 md:px-12 md:pt-28 md:pb-12">
-            <nav data-menu-nav className="flex w-fit flex-col gap-1 md:gap-2">
+            <nav className="flex w-fit flex-col gap-5 md:gap-6">
               {nav.map((item, i) => {
                 const baseHref = item.href.split("#")[0];
                 const current =

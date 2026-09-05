@@ -82,7 +82,7 @@ export const homeHeroCopy = {
 };
 
 export const homeAbout = {
-  kicker: "About us",
+  kicker: "About Blackwhite Viz",
   title: "We are BLACKWHITE Viz",
   lead:
     "We specialize in delivering 3D visualisation solutions that transform ideas into striking visual experiences. As one of the leading 3D visualisation companies, we combine creativity and precision to bring your concepts to life through advanced 3D rendering services in Dubai and beyond.",

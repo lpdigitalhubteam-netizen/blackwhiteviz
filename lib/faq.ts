@@ -61,3 +61,46 @@ export const homeFaqs: FaqItem[] = [
       "Timelines depend on scope—single stills, full suites, or animations. After reviewing your drawings and brief, we confirm a schedule aligned with your launch or presentation date.",
   },
 ];
+
+export const serviceFaqs: FaqItem[] = [
+  {
+    question: "What 3D rendering services does Blackwhite Viz offer?",
+    answer:
+      "We deliver exterior architectural rendering, interior stills, landscape and site context, interior design support, walkthrough videos, and AR/VR visualization. Each service can be commissioned on its own or as a full visual set for a launch.",
+  },
+  {
+    question: "What files do you need to start a rendering project?",
+    answer:
+      "CAD or BIM models, drawings, and a brief on camera views, materials, and lighting are enough to begin. Mood references and brand guidelines help us match the look you need. If the model is incomplete, we can rebuild or refine it before lighting.",
+  },
+  {
+    question: "How long do 3D rendering services take?",
+    answer:
+      "A focused stills package often lands in days to a few weeks. Walkthroughs, large masterplans, and AR/VR take longer. After we review scope, we lock a schedule around your presentation or sales date.",
+  },
+  {
+    question: "Do you work with architects and developers outside Dubai?",
+    answer:
+      "Yes. We are based in Dubai and work with teams across the UAE, the Gulf, Africa, and South Asia. Remote reviews and shared folders keep the process clear wherever the site is.",
+  },
+  {
+    question: "What is the difference between exterior and interior rendering?",
+    answer:
+      "Exterior rendering covers façades, podiums, street life, and how the building meets the site. Interior rendering focuses on rooms, materials, furniture, and daylight. Most sales and design decks need both so the project reads as a complete place.",
+  },
+  {
+    question: "Do you produce landscape rendering with the architecture?",
+    answer:
+      "Yes. Pools, gardens, paving, and surrounding context are lit and finished with the same care as the building, so amenity and site sell in the same frame as the architecture.",
+  },
+  {
+    question: "Can you create 3D walkthrough videos and AR/VR?",
+    answer:
+      "Yes. Walkthroughs take viewers from approach through lobby, rooms, and amenities. AR/VR is used when a client needs to stand inside the design, not only watch it. We advise which format fits the launch.",
+  },
+  {
+    question: "How do we start a service with Blackwhite Viz?",
+    answer:
+      "Send drawings or a model through Contact, or request a price guideline. We confirm scope, views, and timeline, then share a first look for direction before we finish the set.",
+  },
+];

@@ -25,7 +25,7 @@ export default function Home() {
       <section id="studio" className="px-5 pt-12 pb-8 md:px-8 md:pt-16 md:pb-10">
         <div className="grid items-start gap-6 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-5">
-            <h2 className="font-display text-3xl font-semibold tracking-tight uppercase md:text-6xl">
+            <h2 className="font-display text-xl font-semibold tracking-tight uppercase md:text-6xl">
               {homeAbout.kicker}
             </h2>
           </div>
@@ -48,7 +48,7 @@ export default function Home() {
 
       <section className="px-5 pt-6 pb-20 md:px-8 md:pt-8 md:pb-28">
         <div>
-          <h3 className="font-display mb-6 text-2xl font-semibold tracking-tight uppercase md:text-4xl">
+          <h3 className="font-display mb-6 text-xl font-semibold tracking-tight uppercase md:text-4xl">
             Featured Projects
           </h3>
 
@@ -91,7 +91,7 @@ export default function Home() {
 
       <section className="px-5 pb-20 md:px-8 md:pb-28">
         <div className="mb-12 flex flex-col items-center justify-center text-center">
-          <h3 className="font-display text-3xl font-semibold tracking-tight uppercase md:text-4xl">
+          <h3 className="font-display text-xl font-semibold tracking-tight uppercase md:text-4xl">
             Our Services
           </h3>
         </div>
@@ -134,7 +134,7 @@ export default function Home() {
 
       <section className="px-5 pb-20 md:px-8 md:pb-28">
         <div className="mb-8 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
-          <h2 className="font-display text-3xl font-semibold tracking-tight uppercase md:text-6xl">
+          <h2 className="font-display text-xl font-semibold tracking-tight uppercase md:text-6xl">
             Our Works
           </h2>
           <Link
@@ -167,7 +167,7 @@ export default function Home() {
           <p className="mb-3 text-[10px] tracking-[0.28em] text-muted uppercase">
             {blogIntro.kicker}
           </p>
-          <h2 className="font-display text-3xl font-semibold tracking-tight uppercase md:text-6xl">
+          <h2 className="font-display text-xl font-semibold tracking-tight uppercase md:text-6xl">
             {blogIntro.title}
           </h2>
           <p className="mt-4 text-sm italic text-foreground/70 md:text-base">
@@ -199,7 +199,7 @@ export default function Home() {
 
       <section className="px-5 pb-20 md:px-8 md:pb-28">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-3xl font-semibold tracking-tight uppercase md:text-5xl">
+          <h2 className="font-display text-xl font-semibold tracking-tight uppercase md:text-5xl">
             FAQ&apos;s
           </h2>
         </div>
