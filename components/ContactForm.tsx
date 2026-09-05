@@ -52,7 +52,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} autoComplete="off" className="relative flex max-w-lg flex-col gap-5">
-      <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
+      <div className="pointer-events-none absolute h-0 w-0 overflow-hidden opacity-0" aria-hidden>
         <label>
           Company URL
           <input
