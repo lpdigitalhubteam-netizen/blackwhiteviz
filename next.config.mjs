@@ -52,19 +52,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-    return [
-      {
-        source: "/services/2d-3d-floor-plans",
-        destination: "/services/3d-walkthrough-videos",
-        permanent: true,
-      },
-      {
-        source: "/services/landscape-rendering",
-        destination: "/services/360-panorama",
-        permanent: true,
-      },
-    ];
-  },
-};
-
-export default nextConfig;
