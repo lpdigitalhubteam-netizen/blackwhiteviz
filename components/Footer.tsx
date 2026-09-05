@@ -180,7 +180,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-line px-5 py-6 pb-24 md:px-8 md:pb-6">
-        <p className="text-center text-[10px] tracking-[0.16em] text-muted md:text-sm md:tracking-[0.12em]">
+        <p className="text-center text-[10px] tracking-normal text-muted md:text-sm">
           ©{year} BlackWhite Viz by {site.parent}
         </p>
       </div>
