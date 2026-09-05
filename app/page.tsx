@@ -8,7 +8,7 @@ import { Reveal } from "@/components/Reveal";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { blogIntro, blogPosts } from "@/lib/blog";
 import { homeFaqs } from "@/lib/faq";
-import { homeAbout, homeSelection } from "@/lib/home";
+import { homeAbout, homeHeroSlides, homeSelection } from "@/lib/home";
 import { absoluteTitle, seo } from "@/lib/seo";
 import { servicePages } from "@/lib/services";
 
@@ -20,6 +20,12 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
+      <link
+        rel="preload"
+        as="image"
+        href={encodeURI(homeHeroSlides[0].src)}
+        fetchPriority="high"
+      />
       <HomeHero />
 
       <section id="studio" className="px-5 pt-12 pb-8 md:px-8 md:pt-16 md:pb-10">

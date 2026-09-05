@@ -105,6 +105,8 @@ export function HomeHero() {
                 alt={slide.alt}
                 fill
                 priority={safeIndex === 0}
+                fetchPriority={safeIndex === 0 ? "high" : "low"}
+                loading={safeIndex === 0 ? "eager" : "lazy"}
                 sizes="100vw"
                 className="object-contain md:object-cover"
               />
