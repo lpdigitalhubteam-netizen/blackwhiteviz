@@ -68,12 +68,12 @@ export const homeHeroSlides = [
   },
   {
     src: cover("cam - 2 copy.webp"),
-    alt: "Landscape and site visualization",
-    title: "Landscape Context",
-    kicker: "Landscape",
-    lines: ["Landscape", "And Site"],
+    alt: "Fort 3D rendering — exterior",
+    title: "Fort",
+    kicker: "Exterior rendering",
+    lines: ["Fort", "3D Rendering"],
     paragraph:
-      "Ground, greenery, and approach rendered with the same care as the building.",
+      "Mass, light, and place — exterior cameras that hold the fort in clear volume.",
   },
 ] as const;
 
